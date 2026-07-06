@@ -75,10 +75,15 @@
   .vt.active{background:var(--blue);color:#fff}
   /* Layout split (cards + mapa) estilo Airbnb */
   .layout.list .mappane{display:none}
-  .layout.map{display:flex;gap:16px;align-items:flex-start}
-  .layout.map .grid{order:1;flex:1 1 46%;grid-template-columns:1fr}
-  .layout.map .mappane{order:2;flex:1 1 54%;position:sticky;top:78px;align-self:flex-start}
-  .layout.map #map{height:calc(100vh - 160px);min-height:420px;border-radius:12px;border:1px solid var(--line);background:#e9e7e4}
+  /* Na visão mapa, o bloco escapa do limite de 1180px e usa mais da tela (até 1600px),
+     mantendo a coluna de cards à esquerda com largura confortável e fixa. */
+  .layout.map{display:flex;gap:20px;align-items:flex-start;
+    width:min(calc(100vw - 48px),1600px);
+    margin-left:calc((min(calc(100vw - 48px),1600px) - 100%) / -2)}
+  .layout.map .grid{order:1;flex:0 0 clamp(340px,32%,470px);grid-template-columns:1fr}
+  .layout.map .mappane{order:2;flex:1 1 auto;position:sticky;top:78px;align-self:flex-start}
+  .layout.map .card{cursor:pointer}
+  .layout.map #map{height:calc(100vh - 160px);min-height:440px;border-radius:12px;border:1px solid var(--line);background:#e9e7e4}
   .mapfoot{color:var(--stone);font-size:.72rem;margin-top:8px;line-height:1.5}
   .mapoff{display:flex;align-items:center;justify-content:center;height:100%;color:var(--graphite);text-align:center;padding:20px;font-size:.9rem}
   /* Pinos (pílulas de preço) estilo Airbnb, sobre mapa claro */
@@ -95,8 +100,8 @@
   .leaflet-popup-content a{color:var(--blue);font-weight:600;text-decoration:none}
   @media(max-width:900px){
     .layout.map{flex-direction:column}
-    .layout.map .mappane{order:-1;position:static;width:100%;flex-basis:auto}
-    .layout.map .grid{width:100%;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+    .layout.map .mappane{order:-1;position:static;width:100%;flex:1 1 auto}
+    .layout.map .grid{width:100%;flex:0 0 auto;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
     .layout.map #map{height:52vh;min-height:320px}
   }
 </style>
@@ -315,6 +320,19 @@ function focusCard(id){
 }
 grid.addEventListener('mouseover',function(e){var c=e.target.closest('.card');if(c)setPinActive(c.getAttribute('data-id'),true);});
 grid.addEventListener('mouseout',function(e){var c=e.target.closest('.card');if(c)setPinActive(c.getAttribute('data-id'),false);});
+// Clicar no card leva o mapa até o pino (o link "Ver no Daft.ie" segue funcionando).
+grid.addEventListener('click',function(e){
+  if(e.target.closest('a'))return;
+  if(!mapReady()||!layout.classList.contains('map'))return;
+  var c=e.target.closest('.card');if(!c)return;
+  var id=c.getAttribute('data-id');var m=markers[id];if(!m)return;
+  var ll=m.getLatLng(),z=Math.max(map.getZoom(),15);
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce)map.setView(ll,z);else map.flyTo(ll,z,{duration:.6});
+  m.openPopup();
+  setPinActive(id,true);setTimeout(function(){setPinActive(id,false);},1800);
+  if(window.innerWidth<=900)document.getElementById('mapPane').scrollIntoView({behavior:'smooth',block:'start'});
+});
 function mapFail(){mapEl.innerHTML='<div class="mapoff">Não foi possível carregar o mapa (precisa de internet). Use a visão Lista.</div>';}
 function showMap(){
   layout.className='layout map';
