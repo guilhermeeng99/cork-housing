@@ -13,7 +13,7 @@
     --canvas:#f6f5f4; --card:#ffffff; --line:rgba(0,0,0,.09); --line-2:rgba(0,0,0,.15);
     --ink:#000000; --ink-90:rgba(0,0,0,.90); --graphite:#615d59; --stone:#757575;
     --blue:#0075de; --blue-ink:#0060bb; --sky:#e6f3fe; --marigold:#ffb110; --vermillion:#e32d14;
-    --chip-bg:#f1efed;
+    --chip-bg:#f1efed; --sell-green:#1f7a4d;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:'Inter',ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -104,6 +104,56 @@
     .layout.map .grid{width:100%;flex:0 0 auto;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
     .layout.map #map{height:52vh;min-height:320px}
   }
+  /* ---- Aba Desapego (venda de móveis) ---- */
+  .venda{margin-top:2px}
+  .vh{font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:var(--stone);font-weight:700;margin:34px 0 14px}
+  .vh:first-child{margin-top:6px}
+  .vtablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+  table.vtable{border-collapse:collapse;width:100%;min-width:720px;font-size:.86rem}
+  table.vtable thead th{background:var(--chip-bg);text-align:right;padding:11px 12px;font-weight:600;color:var(--stone);font-size:.72rem;border-bottom:1px solid var(--line);white-space:nowrap}
+  table.vtable thead th.wk{text-align:left}
+  table.vtable td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap;font-variant-numeric:tabular-nums}
+  table.vtable td.wk{text-align:left;font-weight:600}
+  table.vtable td.wk small{color:var(--stone);font-weight:400;margin-left:6px}
+  table.vtable tr:last-child td{border-bottom:0}
+  table.vtable tr.novoref td{color:var(--stone);font-style:italic;text-decoration:line-through}
+  table.vtable tr.active-row td{background:var(--sky)}
+  table.vtable td.tot{font-weight:700}
+  table.vtable td.tot.a{color:var(--sell-green)} table.vtable td.tot.b{color:#8a5a00} table.vtable td.tot.c{color:var(--vermillion)}
+  .vph{display:inline-block;font-size:.6rem;padding:1px 7px;border-radius:9999px;margin-left:8px;text-transform:uppercase;font-weight:700;letter-spacing:.03em;vertical-align:middle}
+  .vph.a{background:rgba(31,122,77,.14);color:var(--sell-green)}
+  .vph.b{background:rgba(255,177,16,.22);color:#8a5a00}
+  .vph.c{background:rgba(227,45,20,.12);color:var(--vermillion)}
+  .vcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+  .vcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:11px}
+  .vcard .vtop{display:flex;gap:11px;align-items:flex-start}
+  .vcard .vico{font-size:1.5rem;line-height:1}
+  .vcard .vnm{font-weight:600;font-size:.98rem;line-height:1.3;color:var(--ink)}
+  .vcard .vmeta{font-size:.75rem;color:var(--stone);margin-top:3px}
+  .vpill{align-self:flex-start;font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:9999px}
+  .vpill.ess{background:var(--sky);color:var(--blue)}
+  .vpill.now{background:rgba(31,122,77,.14);color:var(--sell-green)}
+  .vprow{display:flex;gap:10px}
+  .vpbox{flex:1;background:var(--chip-bg);border-radius:9px;padding:9px 11px}
+  .vpbox .vlab{font-size:.64rem;text-transform:uppercase;letter-spacing:.04em;color:var(--stone);margin-bottom:2px}
+  .vpbox .vval{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .vpbox.start .vval{color:var(--sell-green)}
+  .vpbox.floor .vval{color:var(--vermillion)}
+  .vcard .vnote{font-size:.8rem;color:var(--graphite);line-height:1.5}
+  .vcard a.vlink{font-size:.78rem;color:var(--blue);text-decoration:none;font-weight:600;margin-top:auto}
+  .vcard a.vlink:hover{text-decoration:underline}
+  .vstrat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px 20px}
+  .vstrat details{border-bottom:1px solid var(--line)}
+  .vstrat details:last-child{border-bottom:0}
+  .vstrat summary{cursor:pointer;padding:14px 0;font-weight:600;font-size:.95rem;list-style:none;display:flex;gap:9px;align-items:center;color:var(--ink)}
+  .vstrat summary::-webkit-details-marker{display:none}
+  .vstrat summary .vchev{color:var(--stone);transition:transform .18s;font-size:.7rem}
+  .vstrat details[open] summary .vchev{transform:rotate(90deg)}
+  .vstrat .vbody{padding:0 0 15px 26px}
+  .vstrat .vbody p{margin:0 0 8px;font-size:.85rem;color:var(--graphite);line-height:1.55}
+  .vstrat .vbody b{color:var(--ink)}
+  .vfoot{color:var(--stone);font-size:.75rem;line-height:1.6;margin-top:26px;border-top:1px solid var(--line);padding-top:16px}
+  .vfoot b{color:var(--graphite)}
 </style>
 </head>
 <body>
@@ -114,6 +164,7 @@
   <div class="tabs">
     <button class="tab active" id="tabE1" data-etapa="Etapa 1">Etapa 1 <small>quarto ou lugar inteiro</small></button>
     <button class="tab" id="tabE2" data-etapa="Etapa 2">Etapa 2 <small>pet-friendly (2 quartos)</small></button>
+    <button class="tab" id="tabVenda" data-etapa="Venda">Desapego <small>venda de móveis</small></button>
   </div>
 
   <div class="stats" id="statsE1">
@@ -130,6 +181,13 @@
     <div class="stat"><b>€1800</b><span>desde</span></div>
     <div class="stat"><b>€2600</b><span>até</span></div>
   </div>
+  
+  <div class="stats hidden" id="statsVenda">
+    <div class="stat"><b>R$ 3.620</b><span>se vender no início</span></div>
+    <div class="stat"><b>R$ 2.230</b><span>piso (mínimo total)</span></div>
+    <div class="stat hl"><b>6</b><span>itens (1 essencial, 5 já)</span></div>
+    <div class="stat"><b id="vDias">-</b><span>dias até a mudança (25/09)</span></div>
+  </div>
 
   <div class="note" id="noteE1">
     <b>Quarto privativo:</b> quarto só de vocês numa casa com colegas nas áreas comuns. "Casal OK" = anúncio permite 2 pessoas. <b>Lugar inteiro:</b> estúdio ou 1 quarto sem colegas, mais caro (desde €1088). Cuidado com golpes: nunca pague antes de visita.
@@ -138,7 +196,7 @@
     Simulação do mercado atual (imóveis 2-3 quartos, €1800-2600). Realidade: o Daft não tem filtro de pet e quase ninguém anuncia pet-friendly. Aqui, 0 dizem aceitar, 5 proíbem, o resto não menciona (perguntar ao dono). Com 4 gatos, a Etapa 2 vai depender de negociar caso a caso. Quando for a hora real (a partir de setembro), re-rodar a busca.
   </div>
 
-  <div class="controls">
+  <div class="controls" id="housingControls">
     <div class="viewtoggle">
       <button class="vt active" id="vList">☰ Lista</button>
       <button class="vt" id="vMap">🗺 Mapa</button>
@@ -168,6 +226,55 @@
       <div class="mapfoot">Pinos em localização aproximada por bairro (não é o endereço exato), como no Airbnb. Mapa: OpenStreetMap (precisa de internet). Verde = aceita casal (Etapa 1) ou considera pet (Etapa 2); vermelho = proíbe pet.</div>
     </div>
     <div class="grid" id="grid"></div>
+  </div>
+  
+  <div class="venda hidden" id="vendaSection">
+    <div class="note">
+      <b>Desapego para a mudança (25/09/2026).</b> Preço inicial mais alto, com queda programada por semana. Julho é fase de folga (segura o preço, tem tempo), setembro é reta final (quedas fortes). A linha da semana atual aparece destacada na tabela. Preços "novo" são fato (07/07/2026); início e piso são recomendação.
+    </div>
+    <h3 class="vh">Tabela de preços por semana</h3>
+    <div class="vtablewrap"><table class="vtable">
+      <thead><tr><th class="wk">Semana</th><th>TV 55"</th><th>Cadeira</th><th>Rack</th><th>Mesa+4</th><th>Buffet</th><th>Mesinhas</th><th>Total</th></tr></thead>
+      <tbody><tr class="novoref"><td class="wk">Novo (ref)</td><td>2.759</td><td>1.097</td><td>690</td><td>720</td><td>~450</td><td>~130</td><td>5.846</td></tr><tr id="vr1"><td class="wk">Sem 1 <small>07/07</small><span class="vph a">folga</span></td><td>1.850</td><td>650</td><td>390</td><td>400</td><td>270</td><td>60</td><td class="tot a">3.620</td></tr><tr id="vr2"><td class="wk">Sem 2 <small>14/07</small></td><td>1.820</td><td>640</td><td>385</td><td>395</td><td>265</td><td>59</td><td class="tot a">3.564</td></tr><tr id="vr3"><td class="wk">Sem 3 <small>21/07</small></td><td>1.790</td><td>630</td><td>375</td><td>385</td><td>260</td><td>57</td><td class="tot a">3.497</td></tr><tr id="vr4"><td class="wk">Sem 4 <small>28/07</small></td><td>1.750</td><td>610</td><td>365</td><td>375</td><td>250</td><td>55</td><td class="tot a">3.405</td></tr><tr id="vr5"><td class="wk">Sem 5 <small>04/08</small><span class="vph b">meio</span></td><td>1.700</td><td>590</td><td>355</td><td>365</td><td>245</td><td>53</td><td class="tot b">3.308</td></tr><tr id="vr6"><td class="wk">Sem 6 <small>11/08</small></td><td>1.650</td><td>580</td><td>340</td><td>350</td><td>235</td><td>51</td><td class="tot b">3.206</td></tr><tr id="vr7"><td class="wk">Sem 7 <small>18/08</small></td><td>1.590</td><td>550</td><td>320</td><td>330</td><td>220</td><td>48</td><td class="tot b">3.058</td></tr><tr id="vr8"><td class="wk">Sem 8 <small>25/08</small></td><td>1.500</td><td>520</td><td>300</td><td>310</td><td>210</td><td>44</td><td class="tot b">2.884</td></tr><tr id="vr9"><td class="wk">Sem 9 <small>01/09</small><span class="vph c">reta final</span></td><td>1.420</td><td>490</td><td>280</td><td>290</td><td>190</td><td>40</td><td class="tot c">2.710</td></tr><tr id="vr10"><td class="wk">Sem 10 <small>08/09</small></td><td>1.330</td><td>450</td><td>255</td><td>265</td><td>175</td><td>36</td><td class="tot c">2.511</td></tr><tr id="vr11"><td class="wk">Sem 11 <small>15/09</small></td><td>1.250</td><td>420</td><td>235</td><td>245</td><td>160</td><td>32</td><td class="tot c">2.342</td></tr><tr id="vr12"><td class="wk">Sem 12 <small>22/09</small><span class="vph c">piso</span></td><td>1.200</td><td>400</td><td>220</td><td>230</td><td>150</td><td>30</td><td class="tot c">2.230</td></tr></tbody>
+    </table></div>
+    <h3 class="vh">Detalhe de cada item</h3>
+    <div class="vcards"><div class="vcard"><div class="vtop"><span class="vico">📺</span><div><div class="vnm">Smart TV Philips 55" 4K 55PUG7019</div><div class="vmeta">Novo: R$ 2.759 (chega a R$ 4.299)</div></div></div><span class="vpill ess">Essencial, entregar na mudança</span><div class="vprow"><div class="vpbox start"><div class="vlab">Anunciar por</div><div class="vval">R$ 1.850</div></div><div class="vpbox floor"><div class="vlab">Piso</div><div class="vval">R$ 1.200</div></div></div><div class="vnote">Eletrônico segura o valor melhor que móvel. Nas fotos, mostre ela ligada com imagem boa. Ter caixa ou nota fiscal ajuda no preço. Anuncie desde já com "retirada a partir de 22/09".</div><a class="vlink" href="https://www.mercadolivre.com.br/smart-tv-philips-55-4k-55pug7019-google-tv-comando-de-voz/p/MLB40499384" target="_blank" rel="noopener">Ver anúncio de referência</a></div><div class="vcard"><div class="vtop"><span class="vico">🪑</span><div><div class="vnm">Cadeira escritório Mônaco BT07</div><div class="vmeta">Novo: R$ 1.097 (era R$ 1.624)</div></div></div><span class="vpill now">Pode vender já</span><div class="vprow"><div class="vpbox start"><div class="vlab">Anunciar por</div><div class="vval">R$ 650</div></div><div class="vpbox floor"><div class="vlab">Piso</div><div class="vval">R$ 400</div></div></div><div class="vnote">Ergonômica, suporta 200kg, apoio de pés retrátil. Pode sair já. Fotografe encosto, malha e rodízios sem desgaste.</div><a class="vlink" href="https://www.mercadolivre.com.br/cadeira-de-escritorio-ergonmica-mnaco-bt07-luvinco-malha-respiravel-com-suporte-lombar-adaptavel-apoio-para-pes-retratil-encosto-ajustavel-seis-posicoes-cor-preta-suporta-200kg/p/MLB47163373" target="_blank" rel="noopener">Ver anúncio de referência</a></div><div class="vcard"><div class="vtop"><span class="vico">🛋️</span><div><div class="vnm">Rack ripado Valência 220cm</div><div class="vmeta">Novo: R$ 690 (era R$ 1.207)</div></div></div><span class="vpill now">Pode vender já</span><div class="vprow"><div class="vpbox start"><div class="vlab">Anunciar por</div><div class="vval">R$ 390</div></div><div class="vpbox floor"><div class="vlab">Piso</div><div class="vval">R$ 220</div></div></div><div class="vnote">220cm, 100% MDF, 2 portas, para TV até 85". A TV fica presa na parede, então o rack pode sair já. Peça grande e pesada (39kg), avise que precisa desmontar para transporte.</div><a class="vlink" href="https://www.madeiramadeira.com.br/rack-ripado-para-tv-ate-85-polegadas-100-mdf-220cm-2-portas-valencia-marrom-767801.html" target="_blank" rel="noopener">Ver anúncio de referência</a></div><div class="vcard"><div class="vtop"><span class="vico">🍽️</span><div><div class="vnm">Kit mesa Eames 90cm + 4 cadeiras</div><div class="vmeta">Novo: R$ 720 (era R$ 899)</div></div></div><span class="vpill now">Pode vender já</span><div class="vprow"><div class="vpbox start"><div class="vlab">Anunciar por</div><div class="vval">R$ 400</div></div><div class="vpbox floor"><div class="vlab">Piso</div><div class="vval">R$ 230</div></div></div><div class="vnote">Mesa preta 90cm com 4 cadeiras Eames Wood pretas. Pode sair já. Vende melhor como conjunto, fotografe o tampo e as cadeiras sem manchas.</div><a class="vlink" href="https://www.mercadolivre.com.br/kit-mesa-eames-90-cm-preto-4-cadeiras-eames-wood-cor-da-tampa-mesa-preto-com-cadeiras-preto/p/MLB27590702" target="_blank" rel="noopener">Ver anúncio de referência</a></div><div class="vcard"><div class="vtop"><span class="vico">🗄️</span><div><div class="vnm">Buffet aparador Sonetto 3 portas</div><div class="vmeta">Novo: ~R$ 450 (offwhite/freijó)</div></div></div><span class="vpill now">Pode vender já</span><div class="vprow"><div class="vpbox start"><div class="vlab">Anunciar por</div><div class="vval">R$ 270</div></div><div class="vpbox floor"><div class="vlab">Piso</div><div class="vval">R$ 150</div></div></div><div class="vnote">Não é item de uso diário, pode sair primeiro para liberar espaço. Fotografe as 3 portas abertas e o acabamento.</div><a class="vlink" href="https://www.mercadolivre.com.br/buffet-aparador-para-sala-sonetto-3-portas-offwhite-freijo/p/MLB53872127" target="_blank" rel="noopener">Ver anúncio de referência</a></div><div class="vcard"><div class="vtop"><span class="vico">🛎️</span><div><div class="vnm">Conjunto 2 mesinhas de canto (tripé retrô)</div><div class="vmeta">Novo: R$ 78,90 em promoção (R$ 199,90 fora)</div></div></div><span class="vpill now">Pode vender já</span><div class="vprow"><div class="vpbox start"><div class="vlab">Anunciar por</div><div class="vval">R$ 60</div></div><div class="vpbox floor"><div class="vlab">Piso</div><div class="vval">R$ 30</div></div></div><div class="vnote">Par de mesas (35cm e 29cm de diâmetro), tampo branco ou preto, pés de madeira. Barato de novo, revende pouco usado. Use como brinde para fechar a venda de um item maior.</div><a class="vlink" href="https://shopee.com.br/Conjunto-2-Mesas-OU-Mesinhas-De-Canto-Com-Tamanhos-Diferentes-E-Apoio-De-Sof%C3%A1-Sala-Quarto-Decora%C3%A7%C3%A3o-Trip%C3%A9-Retr%C3%B4-i.786374549.15887005172" target="_blank" rel="noopener">Ver anúncio de referência</a></div></div>
+    <h3 class="vh">Como executar a venda</h3>
+    <div class="vstrat">
+      <details open>
+        <summary><span class="vchev">▶</span> Onde e quando anunciar</summary>
+        <div class="vbody">
+          <p><b>OLX e Facebook Marketplace</b> são os melhores para móvel usado: alcance local, sem taxa, comprador retira no apartamento. Mercado Livre e Enjoei valem se aceitar envio.</p>
+          <p><b>Cinco dos seis podem sair já:</b> cadeira, rack, kit mesa, buffet e mesinhas. Anuncie hoje e entregue assim que aparecer comprador.</p>
+          <p><b>Só a TV fica até o fim</b> (uso diário, presa na parede). Anuncie com a observação "retirada a partir de 22/09" e siga usando até a mudança.</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="vchev">▶</span> Regra de preço (como usar a tabela)</summary>
+        <div class="vbody">
+          <p>Anuncie no preço da <b>semana atual</b> (linha destacada). Se aparecer contraproposta, aceite até o preço da <b>semana seguinte</b>, nunca menos.</p>
+          <p><b>Julho é folga:</b> segure o preço e espere o comprador certo. Se um item passa <b>7 a 10 dias sem nenhuma mensagem</b>, está caro: pule para a semana seguinte.</p>
+          <p>Em <b>setembro (reta final)</b> as quedas ficam maiores. Na <b>Semana 12 (22/09)</b> o preço é o piso: feche com quem aparecer. Encerre tudo até 22/09, sobram 3 dias para logística.</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="vchev">▶</span> Fotos e texto do anúncio</summary>
+        <div class="vbody">
+          <p><b>Fotos:</b> luz natural, vários ângulos, mostre marcas de uso com honestidade. TV: foto ligada com imagem nítida.</p>
+          <p><b>Título:</b> nome + medida principal (ex: "Rack 220cm para TV até 85 polegadas").</p>
+          <p><b>Motivo:</b> escrever "vendo por mudança de país" passa confiança e cria urgência natural.</p>
+          <p><b>Combo:</b> desconto para quem levar mais de um item (mesa + cadeiras, ou rack + TV).</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="vchev">▶</span> Segurança no recebimento</summary>
+        <div class="vbody">
+          <p><b>Pix no ato da retirada</b>, confirmando o dinheiro na conta antes de liberar o item. Não aceite "pago depois" nem comprovante por foto.</p>
+          <p>Prefira retirada com alguém em casa. Combine tudo pelo chat da plataforma, não passe dados pessoais desnecessários.</p>
+        </div>
+      </details>
+    </div>
+    <p class="vfoot"><b>Fontes.</b> Preços "novo" coletados em 07/07/2026 (Madeira Madeira, Mercado Livre, Shopee). Os valores de anúncio e piso são recomendação, baseada em bom estado e prática de usado no Brasil (móvel revende ~40 a 60% do novo, eletrônico ~55 a 70%).</p>
   </div>
   <footer>Gerado por build.mjs a partir do Daft.ie em 2026-07-06. Rodar de novo para atualizar.</footer>
 </div>
@@ -248,19 +355,27 @@ function render(){
 }
 function setEtapa(e){
   currentEtapa=e;
+  var venda=e==='Venda';
   document.getElementById('tabE1').classList.toggle('active',e==='Etapa 1');
   document.getElementById('tabE2').classList.toggle('active',e==='Etapa 2');
+  var tvb=document.getElementById('tabVenda'); if(tvb)tvb.classList.toggle('active',venda);
   document.getElementById('statsE1').classList.toggle('hidden',e!=='Etapa 1');
   document.getElementById('statsE2').classList.toggle('hidden',e!=='Etapa 2');
   document.getElementById('noteE1').classList.toggle('hidden',e!=='Etapa 1');
   document.getElementById('noteE2').classList.toggle('hidden',e!=='Etapa 2');
+  var sv=document.getElementById('statsVenda'); if(sv)sv.classList.toggle('hidden',!venda);
+  var vs=document.getElementById('vendaSection'); if(vs)vs.classList.toggle('hidden',!venda);
+  document.getElementById('housingControls').classList.toggle('hidden',venda);
+  document.getElementById('layout').classList.toggle('hidden',venda);
   document.querySelectorAll('.e1only').forEach(x=>x.classList.toggle('hidden',e!=='Etapa 1'));
   document.querySelectorAll('.e2only').forEach(x=>x.classList.toggle('hidden',e!=='Etapa 2'));
+  if(venda)return; // aba de venda não usa a grade/mapa de moradia
   fillAreas(); render();
   if(mapReady()&&layout.classList.contains('map'))renderMarkers(lastRows,true);
 }
 document.getElementById('tabE1').addEventListener('click',()=>setEtapa('Etapa 1'));
 document.getElementById('tabE2').addEventListener('click',()=>setEtapa('Etapa 2'));
+var _tabV=document.getElementById('tabVenda'); if(_tabV)_tabV.addEventListener('click',()=>setEtapa('Venda'));
 ['fCat','fCasal','fPet','fBeds','sort','fMax'].forEach(id=>{const el=document.getElementById(id); if(el)el.addEventListener('input',render);});
 fArea.addEventListener('change',render);
 
@@ -357,6 +472,22 @@ document.getElementById('vList').addEventListener('click',showList);
 document.getElementById('vMap').addEventListener('click',showMap);
 
 fillAreas(); render();
+
+// ---- Aba Desapego: contagem regressiva e destaque da semana vigente ----
+(function(){
+  var move=new Date(2026,8,25);
+  var now=new Date();
+  var dias=Math.ceil((move-now)/864e5);
+  var de=document.getElementById('vDias');
+  if(de)de.textContent=dias>0?String(dias):(dias===0?'hoje':'-');
+  var starts=["2026-07-07","2026-07-14","2026-07-21","2026-07-28","2026-08-04","2026-08-11","2026-08-18","2026-08-25","2026-09-01","2026-09-08","2026-09-15","2026-09-22"];
+  var fim=new Date(2026,8,26);
+  for(var i=0;i<starts.length;i++){
+    var s=new Date(starts[i]+'T00:00:00');
+    var e=(i+1<starts.length)?new Date(starts[i+1]+'T00:00:00'):fim;
+    if(now>=s&&now<e){var r=document.getElementById('vr'+(i+1));if(r)r.classList.add('active-row');break;}
+  }
+})();
 </script>
 </body>
 </html>
