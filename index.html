@@ -198,6 +198,35 @@
   .pforai .pfn{font-weight:600;font-size:.85rem;color:var(--ink);margin-bottom:3px}
   .pforai .pfp{font-weight:400;font-size:.72rem;color:var(--stone);margin-left:5px}
   .pforai .pfd{font-size:.79rem;color:var(--graphite);line-height:1.5}
+  .palert.bad{background:rgba(227,45,20,.07);border-color:rgba(227,45,20,.35)}
+  .palert.bad .pat{color:var(--vermillion)}
+  /* ---- Aba Gatos (adaptação) ---- */
+  .gpreps{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}
+  .gprep{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:15px 17px}
+  .gprep .gpt{font-weight:600;font-size:.87rem;color:var(--ink);margin-bottom:5px;line-height:1.35}
+  .gprep .gpd{font-size:.79rem;color:var(--graphite);line-height:1.55}
+  .gfases{display:flex;flex-direction:column;gap:12px}
+  .gfase{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .gfase .gfn{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--sell-green);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem}
+  .gfase .gfb{flex:1;min-width:0}
+  .gfase .gfh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:7px}
+  .gfase .gfnome{font-weight:600;font-size:1rem;color:var(--ink)}
+  .gfase .gfdata{font-size:.75rem;font-weight:700;color:var(--sell-green);background:rgba(31,122,77,.12);padding:2px 9px;border-radius:9999px}
+  .gfase .gfref{font-size:.72rem;color:var(--stone)}
+  .gfase .gfo{font-size:.85rem;color:var(--ink-90);line-height:1.55;margin-bottom:8px}
+  .gfase .gfc{font-size:.81rem;color:var(--graphite);line-height:1.55;margin-bottom:8px}
+  .gfase .gfg{font-size:.81rem;color:var(--blue-ink);background:var(--sky);border-radius:8px;padding:9px 12px;line-height:1.5}
+  .gsinais{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+  .gsin{border-radius:11px;padding:15px 17px;border:1px solid}
+  .gsin.ok{background:rgba(31,122,77,.07);border-color:rgba(31,122,77,.3)}
+  .gsin.warn{background:rgba(255,177,16,.09);border-color:rgba(255,177,16,.35)}
+  .gsin.bad{background:rgba(227,45,20,.07);border-color:rgba(227,45,20,.3)}
+  .gsin .gst{font-weight:700;font-size:.84rem;margin-bottom:8px}
+  .gsin.ok .gst{color:var(--sell-green)} .gsin.warn .gst{color:#8a5a00} .gsin.bad .gst{color:var(--vermillion)}
+  .gsin ul{margin:0;padding-left:17px}
+  .gsin li{font-size:.79rem;color:var(--graphite);line-height:1.5;margin-bottom:6px}
+  @media(max-width:520px){.gfase{flex-direction:column;gap:10px}}
   dl.pmeta{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:.78rem;line-height:1.45}
   dl.pmeta dt{color:var(--stone);font-weight:600;white-space:nowrap}
   dl.pmeta dd{margin:0;color:var(--ink-90)}
@@ -211,6 +240,7 @@
   <p class="sub" id="subHousing">Busca de moradia em Cork, Irlanda. Etapa 1: quarto ou lugar inteiro. Etapa 2: imóvel pet-friendly (2 quartos). Fonte: Daft.ie. Atualizado em 2026-07-06.</p>
   <p class="sub hidden" id="subPouso">Fase 0: acomodação temporária em Cork, da chegada (08/09/2026) até conseguir o quarto definitivo da Etapa 1. Não está inclusa no pacote da agência de intercâmbio, é paga à parte. Dados coletados em 16/07/2026 nas fontes diretas.</p>
   <p class="sub hidden" id="subVenda">Venda dos móveis do apartamento no Brasil antes da mudança (07/09/2026). A casa em Cork é mobiliada, então tudo sai. Preços com queda programada por semana.</p>
+  
 
   <div class="tabnav">
     <div class="tabgroup">
@@ -223,9 +253,10 @@
     </div>
     <div class="tgsep" aria-hidden="true"></div>
     <div class="tabgroup">
-      <span class="tglabel">📦 Desapego, no Brasil <em>daqui</em></span>
+      <span class="tglabel">📦 No Brasil, antes de ir <em>daqui</em></span>
       <div class="tabs">
         <button class="tab venda" id="tabVenda" data-etapa="Venda">Venda de móveis <small>desapego antes de ir</small></button>
+        
       </div>
     </div>
   </div>
@@ -258,6 +289,7 @@
     <div class="stat"><b>R$ 4.290</b><span>piso do restante</span></div>
     <div class="stat"><b id="vDias">-</b><span>dias até a mudança (07/09)</span></div>
   </div>
+  
 
   <div class="note" id="noteE1">
     <b>Quarto privativo:</b> quarto só de vocês numa casa com colegas nas áreas comuns. "Casal OK" = anúncio permite 2 pessoas. <b>Lugar inteiro:</b> estúdio ou 1 quarto sem colegas, mais caro (desde €1088). Cuidado com golpes: nunca pague antes de visita.
@@ -389,6 +421,7 @@
     </div>
     <p class="vfoot"><b>Fontes.</b> Preços "novo" coletados em julho/2026 (Madeira Madeira, Mercado Livre, Shopee, Casas Bahia, Magazine Luiza, Philco). Os valores de anúncio e piso são recomendação, baseada em bom estado e prática de usado no Brasil (móvel revende ~40 a 60% do novo, eletrônico ~55 a 70%).</p>
   </div>
+  
   <footer>Gerado por build.mjs a partir do Daft.ie em 2026-07-06. Rodar de novo para atualizar.</footer>
 </div>
 
@@ -468,15 +501,17 @@ function render(){
 }
 function setEtapa(e){
   currentEtapa=e;
-  var venda=e==='Venda', pouso=e==='Fase 0';
+  var venda=e==='Venda', pouso=e==='Fase 0', gatos=e==='Gatos';
   var grid=(e==='Etapa 1'||e==='Etapa 2'); // só estas usam a grade/mapa de anúncios
   document.getElementById('tabE1').classList.toggle('active',e==='Etapa 1');
   document.getElementById('tabE2').classList.toggle('active',e==='Etapa 2');
   var tpb=document.getElementById('tabPouso'); if(tpb)tpb.classList.toggle('active',pouso);
   var tvb=document.getElementById('tabVenda'); if(tvb)tvb.classList.toggle('active',venda);
+  var tgb=document.getElementById('tabGatos'); if(tgb)tgb.classList.toggle('active',gatos);
   document.getElementById('subHousing').classList.toggle('hidden',!grid);
   var _subP=document.getElementById('subPouso'); if(_subP)_subP.classList.toggle('hidden',!pouso);
   var _subV=document.getElementById('subVenda'); if(_subV)_subV.classList.toggle('hidden',!venda);
+  var _subG=document.getElementById('subGatos'); if(_subG)_subG.classList.toggle('hidden',!gatos);
   document.getElementById('statsE1').classList.toggle('hidden',e!=='Etapa 1');
   document.getElementById('statsE2').classList.toggle('hidden',e!=='Etapa 2');
   document.getElementById('noteE1').classList.toggle('hidden',e!=='Etapa 1');
@@ -485,6 +520,8 @@ function setEtapa(e){
   var ps=document.getElementById('pousoSection'); if(ps)ps.classList.toggle('hidden',!pouso);
   var sv=document.getElementById('statsVenda'); if(sv)sv.classList.toggle('hidden',!venda);
   var vs=document.getElementById('vendaSection'); if(vs)vs.classList.toggle('hidden',!venda);
+  var sg=document.getElementById('statsGatos'); if(sg)sg.classList.toggle('hidden',!gatos);
+  var gs=document.getElementById('gatosSection'); if(gs)gs.classList.toggle('hidden',!gatos);
   document.getElementById('housingControls').classList.toggle('hidden',!grid);
   document.getElementById('layout').classList.toggle('hidden',!grid);
   document.querySelectorAll('.e1only').forEach(x=>x.classList.toggle('hidden',e!=='Etapa 1'));
@@ -497,6 +534,7 @@ document.getElementById('tabE1').addEventListener('click',()=>setEtapa('Etapa 1'
 document.getElementById('tabE2').addEventListener('click',()=>setEtapa('Etapa 2'));
 var _tabP=document.getElementById('tabPouso'); if(_tabP)_tabP.addEventListener('click',()=>setEtapa('Fase 0'));
 var _tabV=document.getElementById('tabVenda'); if(_tabV)_tabV.addEventListener('click',()=>setEtapa('Venda'));
+var _tabG=document.getElementById('tabGatos'); if(_tabG)_tabG.addEventListener('click',()=>setEtapa('Gatos'));
 ['fCat','fCasal','fPet','fBeds','sort','fMax'].forEach(id=>{const el=document.getElementById(id); if(el)el.addEventListener('input',render);});
 fArea.addEventListener('change',render);
 
@@ -617,6 +655,7 @@ fillAreas(); render();
     if(now>=s&&now<e){var r=document.getElementById('vr'+(i+1));if(r)r.classList.add('active-row');break;}
   }
 })();
+
 </script>
 </body>
 </html>
