@@ -205,6 +205,14 @@
   .gprep{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:15px 17px}
   .gprep .gpt{font-weight:600;font-size:.87rem;color:var(--ink);margin-bottom:5px;line-height:1.35}
   .gprep .gpd{font-size:.79rem;color:var(--graphite);line-height:1.55}
+  .gperfis{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+  .gperf{border-radius:11px;padding:15px 17px;border:1px solid}
+  .gperf.ok{background:rgba(31,122,77,.07);border-color:rgba(31,122,77,.3)}
+  .gperf.bad{background:rgba(227,45,20,.07);border-color:rgba(227,45,20,.35)}
+  .gperf.neutro{background:var(--card);border-color:var(--line)}
+  .gperf .gpft{font-weight:700;font-size:.85rem;margin-bottom:6px;line-height:1.35}
+  .gperf.ok .gpft{color:var(--sell-green)} .gperf.bad .gpft{color:var(--vermillion)} .gperf.neutro .gpft{color:var(--ink)}
+  .gperf .gpfd{font-size:.79rem;color:var(--graphite);line-height:1.55}
   .gfases{display:flex;flex-direction:column;gap:12px}
   .gfase{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
   .gfase .gfn{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--sell-green);color:#fff;
