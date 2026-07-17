@@ -298,6 +298,42 @@
   .ecnotas ul{margin:0 0 16px;padding-left:18px}
   .ecnotas li{font-size:.84rem;color:var(--graphite);line-height:1.5;margin-bottom:7px}
   @media(max-width:560px){.ecbl{min-width:100%}}
+  /* ---- Aba Bagagem ---- */
+  .bgh{font-size:1.05rem;font-weight:700;letter-spacing:-.3px;color:var(--ink);margin:28px 0 14px}
+  .bgh small{font-weight:400;font-size:.8rem;color:var(--stone);letter-spacing:0}
+  .bgorcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px}
+  .bgorc{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--line-2);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+  .bgorc.a{border-left-color:var(--marigold)} .bgorc.b{border-left-color:var(--blue)} .bgorc.c{border-left-color:var(--sell-green)}
+  .bgorc-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .bgorc-tag{font-weight:700;font-size:.95rem;color:var(--ink)}
+  .bgorc-total{font-weight:700;font-size:1.15rem;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .bgorc.a .bgorc-total{color:#8a5a00} .bgorc.b .bgorc-total{color:var(--blue-ink)} .bgorc.c .bgorc-total{color:var(--sell-green)}
+  .bgorc-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px;font-size:.85rem;color:var(--graphite);line-height:1.4}
+  .bgorc-list b{color:var(--ink)} .bgorc-list a{color:var(--blue);text-decoration:none} .bgorc-list a:hover{text-decoration:underline}
+  .bgorc-foot{font-size:.76rem;color:var(--stone);border-top:1px solid var(--line);padding-top:8px}
+  .bgorc-promo{color:var(--sell-green);font-weight:600}
+  .bgorc-nota{margin:0;font-size:.8rem;color:var(--graphite);line-height:1.45}
+  .bgpromo{background:rgba(255,177,16,.09);border:1px solid rgba(255,177,16,.35);border-radius:12px;padding:12px 16px;font-size:.83rem;color:var(--graphite);line-height:1.55;margin:14px 0 0}
+  .bgpromo b{color:var(--ink)}
+  .bggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,205px),1fr));gap:14px}
+  .bgcard{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+  .bgcard:hover{border-color:var(--line-2);transform:translateY(-2px)}
+  .bgimg{display:block;background:#faf9f8;border-bottom:1px solid var(--line);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:10px}
+  .bgimg img{max-width:100%;max-height:100%;object-fit:contain;mix-blend-mode:multiply}
+  .bgbody{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .bgprice{font-size:.95rem;color:var(--ink)} .bgprice b{font-size:1.15rem;letter-spacing:-.4px} .bgprice small{color:var(--stone);font-size:.7rem;font-weight:500} .bgprice s{color:var(--stone);font-size:.78rem;margin-left:4px}
+  .bgname{font-size:.82rem;font-weight:600;color:var(--ink);line-height:1.3}
+  .bgspec{font-size:.76rem;color:var(--stone);line-height:1.4}
+  .bgfit{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:9999px;background:rgba(31,122,77,.12);color:var(--sell-green);align-self:flex-start}
+  .bgbtn{margin-top:auto;display:inline-block;text-align:center;background:var(--blue);color:#fff;font-weight:600;font-size:.82rem;padding:8px 12px;border-radius:8px;text-decoration:none;transition:background .15s}
+  .bgbtn:hover{background:var(--blue-ink)}
+  .bgtags{display:flex;flex-wrap:wrap;gap:5px}
+  .bgtag{font-size:.68rem;font-weight:600;padding:3px 8px;border-radius:9999px;background:var(--chip-bg);color:var(--graphite);white-space:nowrap}
+  .bgtag.star{background:var(--marigold);color:#000}
+  .bgtag.sec{background:var(--sky);color:var(--blue-ink)}
+  .bgcard.top{border-color:var(--marigold);box-shadow:0 0 0 2px rgba(255,177,16,.28)}
+  .bgcard.top .bgimg{background:rgba(255,177,16,.06)}
+  .tab.venda#tabBagagem.active{background:var(--sell-green);border-color:var(--sell-green);color:#fff}
 </style>
 </head>
 <body>
@@ -309,6 +345,7 @@
   
   <p class="sub hidden" id="subVagas">Mapa de empresas tech na Irlanda (todos os portes, com Dublin) e vagas abertas em Engenharia de software, Produto/Negócios e Design, puxadas direto do sistema de vagas de cada empresa. Ponte do visto de estudante para o de trabalho: veja quem costuma patrocinar Employment Permit. Snapshot de 2026-07-17.</p>
   <p class="sub hidden" id="subEmpregos">Empregos de chegada em Cork (barista, limpeza, retail, hospitalidade, cuidados) para os primeiros meses com visto de estudante. Empregadores locais que costumam contratar e buscas já filtradas por cargo. É um ponto de partida curado, não uma lista ao vivo: clique para ver e candidatar no site de cada um.</p>
+  
 
   <div class="tabnav">
     <div class="tabgroup">
@@ -324,6 +361,7 @@
       <span class="tglabel">📦 No Brasil, antes de ir <em>daqui</em></span>
       <div class="tabs">
         <button class="tab venda" id="tabVenda" data-etapa="Venda">Venda de móveis <small>desapego antes de ir</small></button>
+        
         
       </div>
     </div>
@@ -380,6 +418,7 @@
     <div class="stat hl"><b>29</b><span>buscas rápidas por cargo</span></div>
     <div class="stat"><b>9</b><span>setores</span></div>
   </div>
+  
 
   <div class="note" id="noteE1">
     <b>Quarto privativo:</b> quarto só de vocês numa casa com colegas nas áreas comuns. "Casal OK" = anúncio permite 2 pessoas. <b>Lugar inteiro:</b> estúdio ou 1 quarto sem colegas, mais caro (desde €1088). Cuidado com golpes: nunca pague antes de visita.
@@ -1319,6 +1358,7 @@
     <p class="vgfoot"><b>Fonte.</b> Empregadores e buscas curados em 2026-07-17. Regras do Stamp 2 e salário mínimo podem mudar: confirme no site do INIS/serviço de imigração e na vaga. Este material é um ponto de partida, não aconselhamento de imigração.</p>
   </div>
   
+  
   <div class="venda hidden" id="pousoSection">
     <div class="note">
       <b>Por que existe uma Fase 0.</b> A chegada em Cork é em 08/09/2026, às 14:40. A Etapa 1 (quarto definitivo) depende de procurar no Daft já estando lá, com visita presencial. Entre uma coisa e outra existe um vão, e é isso que a Fase 0 cobre. A acomodação temporária não está inclusa no pacote da agência, é paga à parte, e as regras publicadas são mais duras do que parecem. Escola de referência: <b>Bishop St / The Lough</b>, sudoeste do centro.
@@ -1490,7 +1530,7 @@ function render(){
 }
 function setEtapa(e){
   currentEtapa=e;
-  var venda=e==='Venda', pouso=e==='Fase 0', gatos=e==='Gatos', vagas=e==='Vagas', empregos=e==='Empregos';
+  var venda=e==='Venda', pouso=e==='Fase 0', gatos=e==='Gatos', vagas=e==='Vagas', empregos=e==='Empregos', bagagem=e==='Bagagem';
   var grid=(e==='Etapa 1'||e==='Etapa 2'); // só estas usam a grade/mapa de anúncios
   document.getElementById('tabE1').classList.toggle('active',e==='Etapa 1');
   document.getElementById('tabE2').classList.toggle('active',e==='Etapa 2');
@@ -1499,12 +1539,14 @@ function setEtapa(e){
   var tgb=document.getElementById('tabGatos'); if(tgb)tgb.classList.toggle('active',gatos);
   var tjb=document.getElementById('tabVagas'); if(tjb)tjb.classList.toggle('active',vagas);
   var teb=document.getElementById('tabEmpregos'); if(teb)teb.classList.toggle('active',empregos);
+  var tbb=document.getElementById('tabBagagem'); if(tbb)tbb.classList.toggle('active',bagagem);
   document.getElementById('subHousing').classList.toggle('hidden',!grid);
   var _subP=document.getElementById('subPouso'); if(_subP)_subP.classList.toggle('hidden',!pouso);
   var _subV=document.getElementById('subVenda'); if(_subV)_subV.classList.toggle('hidden',!venda);
   var _subG=document.getElementById('subGatos'); if(_subG)_subG.classList.toggle('hidden',!gatos);
   var _subJ=document.getElementById('subVagas'); if(_subJ)_subJ.classList.toggle('hidden',!vagas);
   var _subE=document.getElementById('subEmpregos'); if(_subE)_subE.classList.toggle('hidden',!empregos);
+  var _subB=document.getElementById('subBagagem'); if(_subB)_subB.classList.toggle('hidden',!bagagem);
   document.getElementById('statsE1').classList.toggle('hidden',e!=='Etapa 1');
   document.getElementById('statsE2').classList.toggle('hidden',e!=='Etapa 2');
   document.getElementById('noteE1').classList.toggle('hidden',e!=='Etapa 1');
@@ -1519,6 +1561,8 @@ function setEtapa(e){
   var js=document.getElementById('vagasSection'); if(js)js.classList.toggle('hidden',!vagas);
   var se=document.getElementById('statsEmpregos'); if(se)se.classList.toggle('hidden',!empregos);
   var es=document.getElementById('empregosSection'); if(es)es.classList.toggle('hidden',!empregos);
+  var sb=document.getElementById('statsBagagem'); if(sb)sb.classList.toggle('hidden',!bagagem);
+  var bs=document.getElementById('bagagemSection'); if(bs)bs.classList.toggle('hidden',!bagagem);
   document.getElementById('housingControls').classList.toggle('hidden',!grid);
   document.getElementById('layout').classList.toggle('hidden',!grid);
   document.querySelectorAll('.e1only').forEach(x=>x.classList.toggle('hidden',e!=='Etapa 1'));
@@ -1534,6 +1578,7 @@ var _tabV=document.getElementById('tabVenda'); if(_tabV)_tabV.addEventListener('
 var _tabG=document.getElementById('tabGatos'); if(_tabG)_tabG.addEventListener('click',()=>setEtapa('Gatos'));
 var _tabJ=document.getElementById('tabVagas'); if(_tabJ)_tabJ.addEventListener('click',()=>setEtapa('Vagas'));
 var _tabE=document.getElementById('tabEmpregos'); if(_tabE)_tabE.addEventListener('click',()=>setEtapa('Empregos'));
+var _tabB=document.getElementById('tabBagagem'); if(_tabB)_tabB.addEventListener('click',()=>setEtapa('Bagagem'));
 ['fCat','fCasal','fPet','fBeds','sort','fMax'].forEach(id=>{const el=document.getElementById(id); if(el)el.addEventListener('input',render);});
 fArea.addEventListener('change',render);
 
