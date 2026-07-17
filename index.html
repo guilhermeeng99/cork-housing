@@ -241,6 +241,41 @@
   dl.pmeta dd{margin:0;color:var(--ink-90)}
   .pcard .pnota{font-size:.78rem;color:var(--graphite);line-height:1.5;border-left:2px solid var(--line-2);padding-left:10px}
   .vlink.off{color:var(--stone);font-weight:500;font-style:italic;margin-top:auto}
+  /* ---- Aba Empresas & vagas tech ---- */
+  .vggrid{grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr))}
+  .vgcard{gap:12px}
+  .vghead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .vgtitle{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .vgname{font-size:1.12rem;font-weight:700;letter-spacing:-.3px;color:var(--ink);line-height:1.2}
+  .vgloc{font-size:.8rem;color:var(--stone)}
+  .vgporte{flex:none;font-size:.66rem;font-weight:700;letter-spacing:.02em;padding:4px 10px;border-radius:9999px;white-space:nowrap}
+  .vgporte.big{background:var(--sky);color:var(--blue-ink)}
+  .vgporte.med{background:rgba(31,122,77,.12);color:var(--sell-green)}
+  .vgporte.peq{background:var(--chip-bg);color:var(--graphite)}
+  .chip.cork{background:rgba(31,122,77,.14);color:var(--sell-green);font-weight:600}
+  .vgjobs{margin-top:2px}
+  .jhdr{font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:7px}
+  .jhdr small{color:var(--stone);font-weight:500}
+  .jlist{display:flex;flex-direction:column;gap:1px}
+  .jrow{display:flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--ink-90);
+    padding:7px 8px;border-radius:8px;font-size:.84rem;line-height:1.35;transition:background .15s ease}
+  .jrow:hover{background:var(--chip-bg)}
+  .jtag{flex:none;font-size:.6rem;font-weight:700;letter-spacing:.03em;padding:2px 7px;border-radius:9999px;text-transform:uppercase;transform:translateY(-1px)}
+  .jtag.eng{background:var(--sky);color:var(--blue-ink)}
+  .jtag.prod{background:rgba(31,122,77,.14);color:var(--sell-green)}
+  .jtit{flex:1 1 auto;font-weight:500;min-width:0}
+  .jrow small{flex:0 1 auto;min-width:0;max-width:55%;color:var(--stone);font-size:.74rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .jmore{display:inline-block;margin-top:6px;padding:5px 8px;font-size:.8rem;font-weight:600;color:var(--blue);text-decoration:none}
+  .jmore:hover{text-decoration:underline}
+  .jnone{font-size:.83rem;color:var(--stone)}
+  .jnone a,.jlink a{color:var(--blue);font-weight:600;text-decoration:none}
+  .jnone a:hover,.jlink a:hover{text-decoration:underline}
+  .jlink{display:flex;flex-direction:column;gap:2px;font-size:.88rem}
+  .jlink small{color:var(--stone);font-size:.72rem;font-weight:400}
+  .vgnota{margin:0;font-size:.78rem;color:var(--graphite);line-height:1.5;border-left:2px solid var(--line-2);padding-left:10px}
+  .vgfoot{font-size:.76rem;color:var(--stone);line-height:1.55;margin-top:22px}
+  .vgfoot code{background:var(--chip-bg);border-radius:5px;padding:1px 6px;font-size:.92em}
+  .tab.vagas.active{background:var(--sell-green);border-color:var(--sell-green);color:#fff}
 </style>
 </head>
 <body>
@@ -250,6 +285,7 @@
   <p class="sub hidden" id="subPouso">Fase 0: acomodação temporária em Cork, da chegada (08/09/2026) até conseguir o quarto definitivo da Etapa 1. Não está inclusa no pacote da agência de intercâmbio, é paga à parte. Dados coletados em 16/07/2026 nas fontes diretas.</p>
   <p class="sub hidden" id="subVenda">Venda dos móveis do apartamento no Brasil antes da mudança (07/09/2026). A casa em Cork é mobiliada, então tudo sai. Preços com queda programada por semana.</p>
   
+  <p class="sub hidden" id="subVagas">Mapa de empresas tech na Irlanda (todos os portes, com Dublin) e vagas abertas em Engenharia de software e Produto/Negócios, puxadas direto do sistema de vagas de cada empresa. Ponte do visto de estudante para o de trabalho: veja quem costuma patrocinar Employment Permit. Snapshot de 2026-07-17.</p>
 
   <div class="tabnav">
     <div class="tabgroup">
@@ -266,6 +302,13 @@
       <div class="tabs">
         <button class="tab venda" id="tabVenda" data-etapa="Venda">Venda de móveis <small>desapego antes de ir</small></button>
         
+      </div>
+    </div>
+    <div class="tgsep" aria-hidden="true"></div>
+    <div class="tabgroup">
+      <span class="tglabel">🧑‍💻 Trabalho na Irlanda <em>depois</em></span>
+      <div class="tabs">
+        <button class="tab vagas" id="tabVagas" data-etapa="Vagas">Empresas &amp; vagas tech <small>Irlanda</small></button>
       </div>
     </div>
   </div>
@@ -299,6 +342,14 @@
     <div class="stat"><b id="vDias">-</b><span>dias até a mudança (07/09)</span></div>
   </div>
   
+  
+  <div class="stats hidden" id="statsVagas">
+    <div class="stat"><b>68</b><span>empresas mapeadas</span></div>
+    <div class="stat hl"><b>100</b><span>vagas abertas (eng/produto)</span></div>
+    <div class="stat"><b>15</b><span>empresas contratando</span></div>
+    <div class="stat"><b>38</b><span>patrocinam visto</span></div>
+    <div class="stat"><b>25</b><span>com escritório em Cork</span></div>
+  </div>
 
   <div class="note" id="noteE1">
     <b>Quarto privativo:</b> quarto só de vocês numa casa com colegas nas áreas comuns. "Casal OK" = anúncio permite 2 pessoas. <b>Lugar inteiro:</b> estúdio ou 1 quarto sem colegas, mais caro (desde €1088). Cuidado com golpes: nunca pague antes de visita.
@@ -337,6 +388,570 @@
       <div class="mapfoot">Pinos em localização aproximada por bairro (não é o endereço exato), como no Airbnb. Mapa: OpenStreetMap (precisa de internet). Verde = aceita casal (Etapa 1) ou considera pet (Etapa 2); vermelho = proíbe pet.</div>
     </div>
     <div class="grid" id="grid"></div>
+  </div>
+  
+  <div class="vagas hidden" id="vagasSection">
+    <div class="note">
+      <b>Como ler.</b> Muitas empresas abrem vaga no próprio site (Greenhouse, Lever, etc.) antes do LinkedIn. Aqui as vagas de <b>Engenharia</b> e <b>Produto/Negócios</b> na Irlanda são puxadas desses sistemas na hora de gerar a página (snapshot de 2026-07-17, não é ao vivo). <b>✓ Patrocina visto</b> marca quem costuma dar Employment Permit (Critical Skills), o caminho do visto de estudante para o de trabalho. Empresas sem API pública (várias big techs) entram com link direto para carreiras. Sempre confirme detalhes e patrocínio na vaga real.
+    </div>
+    <div class="controls vgcontrols">
+      <div><label>Porte</label>
+        <select id="vgPorte"><option value="">Todos</option><option value="big">Big tech</option><option value="med">Média</option><option value="peq">Pequena</option></select></div>
+      <div><label>Área</label>
+        <select id="vgArea"><option value="">Todas</option><option value="Engenharia de software">Engenharia</option><option value="Produto / Projeto / Negocios">Produto/Negócios</option></select></div>
+      <div><label>Local</label>
+        <select id="vgLoc"><option value="">Toda a Irlanda</option><option value="cork">Cork</option><option value="dublin">Dublin</option><option value="remoto">Remoto/Híbrido</option></select></div>
+      <label class="chkbox"><input type="checkbox" id="vgOpen"> Só com vaga aberta</label>
+      <label class="chkbox"><input type="checkbox" id="vgSpon"> Só patrocina visto</label>
+      <input id="vgSearch" type="search" placeholder="Buscar empresa..." style="min-width:150px">
+      <span class="count" id="vgCount"></span>
+    </div>
+    <div class="grid vggrid" id="vgGrid"><article class="card vgcard" data-porte="big" data-areas="Produto / Projeto / Negocios|Engenharia de software" data-loc="dublin,cork,cork,remoto" data-vagas="0" data-patroc="Sim" data-search="accenture (the dock) dublin cork the dock e o centro global de inovacao/r&amp;d em dublin (grand canal dock). contrata business analyst, innovation lead, pmo analyst e estrategia de produto. accenture tambem anunciou expansao em cork. portal proprio. patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Accenture (The Dock)</span><span class="vgloc">Dublin · Cork · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip g">Produto/Negócios</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://www.accenture.com/ie-en/careers" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">The Dock e o centro global de inovacao/R&amp;D em Dublin (Grand Canal Dock). Contrata Business Analyst, Innovation Lead, PMO Analyst e estrategia de produto. Accenture tambem anunciou expansao em Cork. Portal proprio. Patrocina.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="cork,cork" data-vagas="0" data-patroc="Sim" data-search="apple cork campus enorme em hollyhill, cork (maior empregador tech de cork, ~6 mil pessoas). engenharia, ops/supply chain, compliance e project management. link ja filtrado para cork. patrocina. portal jobs.apple.com proprio.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Apple</span><span class="vgloc">Cork</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://jobs.apple.com/en-ie/search?location=cork-CRK" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Campus enorme em Hollyhill, Cork (maior empregador tech de Cork, ~6 mil pessoas). Engenharia, ops/supply chain, compliance e project management. Link ja filtrado para Cork. Patrocina. Portal jobs.apple.com proprio.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="cork,limerick,dublin,cork,remoto" data-vagas="0" data-patroc="Sim" data-search="dell technologies cork limerick dublin mais de 30 anos na irlanda; hub global com times em cork, limerick e dublin. forte em engenharia de software (system engineering, python) alem de sales/ops. presenca real em cork. patrocina. ats workday, sem json simples.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Dell Technologies</span><span class="vgloc">Cork · Limerick · Dublin · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://jobs.dell.com/en/ireland" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Mais de 30 anos na Irlanda; hub global com times em Cork, Limerick e Dublin. Forte em engenharia de software (system engineering, Python) alem de sales/ops. Presenca real em Cork. Patrocina. ATS Workday, sem JSON simples.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,cork,cork,remoto" data-vagas="0" data-patroc="Sim" data-search="ibm dublin cork campus tecnologico em damastown (dublin) e presenca em cork (ibm tem site em cork). engenharia/consultoria, project management, negocios. patrocina. ats proprio (workday/interno), sem json simples.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">IBM</span><span class="vgloc">Dublin · Cork · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://www.ibm.com/careers/search?field_keyword_08[0]=Ireland" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Campus tecnologico em Damastown (Dublin) e presenca em Cork (IBM tem site em Cork). Engenharia/consultoria, project management, negocios. Patrocina. ATS proprio (Workday/interno), sem JSON simples.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Produto / Projeto / Negocios|Engenharia de software" data-loc="clonakilty,cork,cork,remoto" data-vagas="0" data-patroc="Sim" data-search="j.p. morgan workplace solutions (global shares) clonakilty cork ex-global shares, agora jp morgan (fintech de equity/stock plans). hq em clonakilty (cork). usa oracle cloud hcm (jpmc.fa.oraclecloud.com), sem json simples. patrocinio praticamente garantido (jp morgan). otimo alvo cork.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">J.P. Morgan Workplace Solutions (Global Shares)</span><span class="vgloc">Clonakilty · Cork · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip g">Produto/Negócios</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://www.jpmorganworkplacesolutions.com/ie/jobs/" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Ex-Global Shares, agora JP Morgan (fintech de equity/stock plans). HQ em Clonakilty (Cork). Usa Oracle Cloud HCM (jpmc.fa.oraclecloud.com), sem JSON simples. Patrocinio praticamente garantido (JP Morgan). Otimo alvo Cork.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="cork,cork,remoto" data-vagas="0" data-patroc="Sim" data-search="mckesson cork healthtech gigante dos eua. cork e o primeiro hub corporativo fora da america do norte, com times de software (foco genai), qa, cybersecurity, it e business strategy. ats proprio (phenom), sem json. patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">McKesson</span><span class="vgloc">Cork · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://careers.mckesson.com/en/cork-ireland-careers" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Healthtech gigante dos EUA. Cork e o primeiro hub corporativo fora da America do Norte, com times de software (foco GenAI), QA, cybersecurity, IT e business strategy. ATS proprio (Phenom), sem JSON. Patrocina.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software" data-loc="cork,cork,remoto" data-vagas="0" data-patroc="Sim" data-search="netapp cork hq internacional em cork. engenharia de software forte (storage definido por software, kubernetes, api/db/gui), salario mediano ~80k eur. ats proprio (careers.netapp.com), sem json publico. big tech, patrocina critical skills.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">NetApp</span><span class="vgloc">Cork · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://careers.netapp.com/cork-ireland/" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">HQ internacional em Cork. Engenharia de software forte (storage definido por software, Kubernetes, API/DB/GUI), salario mediano ~80k EUR. ATS proprio (careers.netapp.com), sem JSON publico. Big tech, patrocina Critical Skills.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,cork,cork,remoto" data-vagas="0" data-patroc="Sim" data-search="qualtrics dublin cork saas de experience management. emea hq em dublin (350+, engenharia forte) e abrindo escritorio novo em cork com plano de ~200 empregos ate 2027. engenharia hoje concentrada em dublin; cork ainda em ramp-up. ats proprio. modelo hibrido 3 dias/semana. patrocina visto.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Qualtrics</span><span class="vgloc">Dublin · Cork · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://www.qualtrics.com/careers/us/en/dublin" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">SaaS de experience management. EMEA HQ em Dublin (350+, engenharia forte) e ABRINDO escritorio novo em Cork com plano de ~200 empregos ate 2027. Engenharia hoje concentrada em Dublin; Cork ainda em ramp-up. ATS proprio. Modelo hibrido 3 dias/semana. Patrocina visto.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software" data-loc="cork,limerick,cork" data-vagas="0" data-patroc="Sim" data-search="stryker cork limerick medtech gigante com grande operacao em cork (carrigtwohill/anngrove): r&amp;d, digital solutions e software engineering (co-op e senior). ats workday (stryker.wd1). multinacional grande, patrocina visto. foco em dispositivos medicos, mas ha trilha de software/digital.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Stryker</span><span class="vgloc">Cork · Limerick</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://stryker.wd1.myworkdayjobs.com/StrykerCareers" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Medtech gigante com grande operacao em Cork (Carrigtwohill/Anngrove): R&amp;D, digital solutions e software engineering (co-op e senior). ATS Workday (stryker.wd1). Multinacional grande, patrocina visto. Foco em dispositivos medicos, mas ha trilha de software/digital.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software" data-loc="cork,dublin,cork,remoto" data-vagas="0" data-patroc="Sim" data-search="vmware (broadcom) cork dublin escritorio em ballincollig (cork) com 1000+ pessoas, terceira maior operacao global da vmware. pos-broadcom houve cortes e o perfil de cork e muito technical support/sre. ats agora workday (broadcom), token nao confirmado. patrocina, mas confirme se ainda ha contratacao ativa.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">VMware (Broadcom)</span><span class="vgloc">Cork · Dublin · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://careers.vmware.com/cork-office" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Escritorio em Ballincollig (Cork) com 1000+ pessoas, terceira maior operacao global da VMware. Pos-Broadcom houve cortes e o perfil de Cork e muito technical support/SRE. ATS agora Workday (Broadcom), token nao confirmado. Patrocina, mas confirme se ainda ha contratacao ativa.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="cork,cork,remoto" data-vagas="0" data-patroc="Provavel" data-search="clearstream / deutsche borse cork grupo deutsche borse/clearstream com 620+ pessoas em cork (fundos, custodia e it corporativo do grupo). vagas de it/software e negocios; programa de graduados e parceria com ucc/mtu. ats proprio (careers.deutsche-boerse.com). servicos financeiros costumam patrocinar critical skills para it, confirme.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Clearstream / Deutsche Borse</span><span class="vgloc">Cork · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://careers.deutsche-boerse.com/search" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Grupo Deutsche Borse/Clearstream com 620+ pessoas em Cork (fundos, custodia e IT corporativo do grupo). Vagas de IT/software e negocios; programa de graduados e parceria com UCC/MTU. ATS proprio (careers.deutsche-boerse.com). Servicos financeiros costumam patrocinar Critical Skills para IT, confirme.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Produto / Projeto / Negocios|Engenharia de software" data-loc="dublin,cork,cork,remoto" data-vagas="0" data-patroc="Provavel" data-search="ergo dublin cork maior provedor de solucoes de ti irlandes, escritorios em dublin e cork. vagas de business analyst, project manager e customer success (cork). atencao: parte das vagas vem do braco de resourcing/staffing (contratos), onde patrocinio e menos comum. ats proprio.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Ergo</span><span class="vgloc">Dublin · Cork · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip">Provável patrocínio</span><span class="chip g">Produto/Negócios</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://ergotechnologygroup.com/careers/" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Maior provedor de solucoes de TI irlandes, escritorios em Dublin e Cork. Vagas de Business Analyst, Project Manager e Customer Success (Cork). Atencao: parte das vagas vem do braco de resourcing/staffing (contratos), onde patrocinio e menos comum. ATS proprio.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Produto / Projeto / Negocios|Engenharia de software" data-loc="killorglin,dublin,cork,cork,remoto" data-vagas="0" data-patroc="Provavel" data-search="fexco killorglin dublin cork fintech/pagamentos irlandesa, hq em killorglin (kerry) com escritorios em dublin e cork. categorias de vaga incluem product development e operations. ats proprio (careers.fexco.com), sem token json exposto. tem cork.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Fexco</span><span class="vgloc">Killorglin · Dublin · Cork · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip">Provável patrocínio</span><span class="chip g">Produto/Negócios</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://careers.fexco.com/" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Fintech/pagamentos irlandesa, HQ em Killorglin (Kerry) com escritorios em Dublin e Cork. Categorias de vaga incluem Product Development e Operations. ATS proprio (careers.fexco.com), sem token JSON exposto. Tem Cork.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software" data-loc="cork,cork,remoto" data-vagas="0" data-patroc="Sim" data-search="forcepoint cork cybersecurity (austin, eua) com forte time de engenharia em cork: mobile, backend, devops/aws, qa. ats workday (forcepoint.wd1). bom volume de vagas de engenharia em cork; patrocina visto.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Forcepoint</span><span class="vgloc">Cork · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://forcepoint.wd1.myworkdayjobs.com/external-careers" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Cybersecurity (Austin, EUA) com forte time de engenharia em Cork: mobile, backend, DevOps/AWS, QA. ATS Workday (forcepoint.wd1). Bom volume de vagas de engenharia em Cork; patrocina visto.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="cork,cork,remoto" data-vagas="0" data-patroc="Sim" data-search="global shares (j.p. morgan workplace solutions) cork relevante para cork: plataforma de equity/share plans sediada em clonakilty (cork), adquirida pelo j.p. morgan. vagas migraram para o careers do jpmorgan (workday), sem json publico. grande empregador tech em cork, patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Global Shares (J.P. Morgan Workplace Solutions)</span><span class="vgloc">Cork · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://careers.jpmorgan.com/global/en/students/search-jobs?keyword=Global%20Shares%20Cork" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">RELEVANTE PARA CORK: plataforma de equity/share plans sediada em Clonakilty (Cork), adquirida pelo J.P. Morgan. Vagas migraram para o careers do JPMorgan (Workday), sem JSON publico. Grande empregador tech em Cork, patrocina.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="cork,cork,remoto" data-vagas="0" data-patroc="Provavel" data-search="malwarebytes cork cybersecurity, escritorio em one albert quay (cork). usa rippling como ats (fora do enum, por isso ats_tipo=nenhum). board verificado: 4 vagas na irlanda hoje, 3 comerciais (account manager, cork) e 1 senior product analyst (irlanda). engenharia costuma existir mas hoje esta na europa continental/eua. vale monitorar para swe/produto em cork.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Malwarebytes</span><span class="vgloc">Cork · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://ats.rippling.com/malwarebytes/jobs" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Cybersecurity, escritorio em One Albert Quay (Cork). Usa Rippling como ATS (fora do enum, por isso ats_tipo=nenhum). Board VERIFICADO: 4 vagas na Irlanda hoje, 3 comerciais (Account Manager, Cork) e 1 Senior Product Analyst (Irlanda). Engenharia costuma existir mas hoje esta na Europa continental/EUA. Vale monitorar para SWE/produto em Cork.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="cork,cork,remoto" data-vagas="1" data-patroc="Provavel" data-search="poppulo cork muito relevante para cork: emea hq em cork, software de comunicacao interna. board greenhouse verificado: 3 vagas todas em cork (implementation eng, ae, bdr). contrata java/js. bom alvo local.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Poppulo</span><span class="vgloc">Cork · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jhdr">1 vaga aberta <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="https://job-boards.greenhouse.io/poppulo/jobs/8053607" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Implementation Engineer</span><small>Cork, Ireland - Hybrid</small></a><a class="jmore" href="https://job-boards.greenhouse.io/poppulo" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">MUITO RELEVANTE PARA CORK: EMEA HQ em Cork, software de comunicacao interna. Board Greenhouse verificado: 3 vagas todas em Cork (implementation eng, AE, BDR). Contrata Java/JS. Bom alvo local.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="skibbereen,waterford,cork,remoto" data-vagas="0" data-patroc="Provavel" data-search="spearline (by cyara) skibbereen waterford spearline (hq em skibbereen, oeste de cork) foi adquirida pela cyara (silicon valley). board unificado no lever (token cyara) verificado: retorna vagas mas no momento 0 na irlanda (eua, uk, india, australia). monitore o endpoint lever para novas vagas irlandesas. trabalho remoto/hibrido a partir da irlanda. ~200 pessoas.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Spearline (by Cyara)</span><span class="vgloc">Skibbereen · Waterford · Remoto</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jnone">Sem vaga nas suas áreas agora. <a href="https://jobs.lever.co/cyara" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Spearline (HQ em Skibbereen, oeste de Cork) foi adquirida pela Cyara (Silicon Valley). Board unificado no Lever (token cyara) VERIFICADO: retorna vagas mas no momento 0 na Irlanda (EUA, UK, India, Australia). Monitore o endpoint Lever para novas vagas irlandesas. Trabalho remoto/hibrido a partir da Irlanda. ~200 pessoas.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="cork,cork,remoto" data-vagas="0" data-patroc="Provavel" data-search="teamwork.com cork relevante para cork: hq em cork, plataforma de gestao de projetos, remote-first com campus em cork. contrata muito eng (front, mobile, integracao) e produto. pagina de carreiras usa sistema proprio/custom, sem json publico detectavel.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Teamwork.com</span><span class="vgloc">Cork · Remoto</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://www.teamwork.com/careers/" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">RELEVANTE PARA CORK: HQ em Cork, plataforma de gestao de projetos, remote-first com campus em Cork. Contrata muito eng (front, mobile, integracao) e produto. Pagina de carreiras usa sistema proprio/custom, sem JSON publico detectavel.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Produto / Projeto / Negocios" data-loc="cork,dublin,mayo,cork,remoto" data-vagas="0" data-patroc="Provavel" data-search="telus digital (voxpro) cork dublin mayo ex-voxpro (hq cork), agora telus digital. grande empregador em cork, mas o perfil e majoritariamente cx/suporte multilingue, com poucas vagas de swe/pm. fit fraco para as areas-alvo (mais ops/atendimento). patrocina alguns papeis multilingues via permit, salarios de suporte baixos (~31-34k). inclua so se ampliar o escopo.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">TELUS Digital (Voxpro)</span><span class="vgloc">Cork · Dublin · Mayo · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip">Provável patrocínio</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://careers.telusdigital.com/search/jobs/in/cork" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Ex-Voxpro (HQ Cork), agora TELUS Digital. Grande empregador em Cork, mas o perfil e majoritariamente CX/suporte multilingue, com poucas vagas de SWE/PM. Fit fraco para as areas-alvo (mais ops/atendimento). Patrocina alguns papeis multilingues via permit, salarios de suporte baixos (~31-34k). Inclua so se ampliar o escopo.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software" data-loc="cork,cork,remoto" data-vagas="0" data-patroc="Sim" data-search="trend micro cork cybersecurity global com centro de engenharia em cork. ats e workday (trendmicro.wd3.myworkdayjobs.com/external): sem json get publico, so verificavel via post. patrocina critical skills para engenharia.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Trend Micro</span><span class="vgloc">Cork · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://trendmicro.wd3.myworkdayjobs.com/External" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Cybersecurity global com centro de engenharia em Cork. ATS e Workday (trendmicro.wd3.myworkdayjobs.com/External): sem JSON GET publico, so verificavel via POST. Patrocina Critical Skills para engenharia.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Produto / Projeto / Negocios|Engenharia de software" data-loc="dublin,cork,cork,remoto" data-vagas="25" data-patroc="Sim" data-search="version 1 dublin cork maior consultoria de ti irlandesa, com escritorio em cork. endpoint smartrecruiters testado: 31 vagas na irlanda, incluindo pm, ba e delivery manager. patrocina critical skills com frequencia.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Version 1</span><span class="vgloc">Dublin · Cork · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip g">Produto/Negócios</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jhdr">25 vagas abertas <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="https://jobs.smartrecruiters.com/Version1/744000138366939" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Data Solution Architect</span><small>Dublin, County Dublin, ie</small></a><a class="jrow" href="https://jobs.smartrecruiters.com/Version1/744000138361514" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">AI Engineer</span><small>Dublin, County Dublin, ie</small></a><a class="jrow" href="https://jobs.smartrecruiters.com/Version1/744000138128420" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Senior Full Stack Developer (Angular / .NET)</span><small>Dublin, Cork, Galway, Limerick, Waterford, Athlone , ie</small></a><a class="jrow" href="https://jobs.smartrecruiters.com/Version1/744000137862479" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Full Stack Developer (Angular &amp; Java)</span><small>Dublin, Portlaoise, ie</small></a><a class="jrow" href="https://jobs.smartrecruiters.com/Version1/744000137618844" target="_blank" rel="noopener"><span class="jtag prod">Produto</span><span class="jtit">Senior Project Manager</span><small>Dublin, County Dublin, ie</small></a><a class="jrow" href="https://jobs.smartrecruiters.com/Version1/744000137101920" target="_blank" rel="noopener"><span class="jtag prod">Produto</span><span class="jtit">Business Analyst</span><small>Dublin, County Dublin, ie</small></a><a class="jrow" href="https://jobs.smartrecruiters.com/Version1/744000136820023" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Automation Test Engineer</span><small>Dublin, County Dublin, ie</small></a><a class="jrow" href="https://jobs.smartrecruiters.com/Version1/744000136789699" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">AI Technical Lead/Senior Developer - DevOps/MLOps</span><small>Dublin, County Dublin, ie</small></a><a class="jmore" href="https://careers.smartrecruiters.com/Version1?location=Ireland" target="_blank" rel="noopener">+ 17 outras no site →</a></div></div>
+    <p class="vgnota">Maior consultoria de TI irlandesa, com escritorio em Cork. Endpoint SmartRecruiters testado: 31 vagas na Irlanda, incluindo PM, BA e Delivery Manager. Patrocina Critical Skills com frequencia.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="cork,cork,remoto" data-vagas="0" data-patroc="Sim" data-search="workvivo (by zoom) cork plataforma de employee experience, comprada pela zoom em 2023. hub principal em cork com plano de +100 empregos irlandeses (2 anos), majoritariamente produto e engenharia. vagas no ats proprio da zoom (careers.zoom.us). zoom (big tech) patrocina visto. excelente fit para as 2 areas.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Workvivo (by Zoom)</span><span class="vgloc">Cork · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://careers.zoom.us/jobs?location=Cork" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Plataforma de employee experience, comprada pela Zoom em 2023. Hub principal em Cork com plano de +100 empregos irlandeses (2 anos), majoritariamente produto e engenharia. Vagas no ATS proprio da Zoom (careers.zoom.us). Zoom (big tech) patrocina visto. Excelente fit para as 2 areas.</p>
+  </article><article class="card vgcard" data-porte="peq" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="cork,cork,remoto" data-vagas="0" data-patroc="Provavel" data-search="keelvar cork base cork. startup de otimizacao/ia para sourcing (procurement), fundada em cork. usa ats personio (keelvar.jobs.personio.com), que nao tem o json publico simples do enum, por isso ats_tipo=nenhum. no momento da checagem o board mostrava so 1 vaga (procurement consultant us); historicamente publica senior backend/graduate/senior ai engineer em cork (remoto irlanda). monitorar: quando abre eng senior, patrocinio e plausivel.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Keelvar</span><span class="vgloc">Cork · Remoto</span></div>
+      <span class="vgporte peq">Pequena</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://keelvar.jobs.personio.com/" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">BASE CORK. Startup de otimizacao/IA para sourcing (procurement), fundada em Cork. Usa ATS Personio (keelvar.jobs.personio.com), que NAO tem o JSON publico simples do enum, por isso ats_tipo=nenhum. No momento da checagem o board mostrava so 1 vaga (Procurement Consultant US); historicamente publica Senior Backend/Graduate/Senior AI Engineer em Cork (remoto Irlanda). Monitorar: quando abre eng senior, patrocinio e plausivel.</p>
+  </article><article class="card vgcard" data-porte="peq" data-areas="Produto / Projeto / Negocios" data-loc="dublin,cork,limerick,mullingar,cork,remoto" data-vagas="0" data-patroc="?" data-search="provident crm dublin cork limerick mullingar consultoria de crm (creatio/sugarcrm/hubspot), com escritorios em dublin, cork e limerick. contrata product consultant e business/crm analyst. empresa pequena: patrocinio de employment permit incerto (provavelmente nao para todos os cargos). tem cork.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Provident CRM</span><span class="vgloc">Dublin · Cork · Limerick · Mullingar · Híbrido</span></div>
+      <span class="vgporte peq">Pequena</span>
+    </div>
+    <div class="badges"><span class="chip cork">📍 Cork</span><span class="chip w">Patrocínio a confirmar</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://www.providentcrm.com/careers/" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Consultoria de CRM (Creatio/SugarCRM/HubSpot), com escritorios em Dublin, Cork e Limerick. Contrata Product Consultant e Business/CRM Analyst. Empresa pequena: patrocinio de Employment Permit incerto (provavelmente nao para todos os cargos). Tem Cork.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="amazon / aws dublin grande operacao aws e corporate em dublin (data centers na regiao). sde, program/product manager, ops. patrocina critical skills. portal amazon.jobs proprio, sem json simples publico.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Amazon / AWS</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://www.amazon.jobs/en/locations/dublin-ireland" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Grande operacao AWS e corporate em Dublin (data centers na regiao). SDE, program/product manager, ops. Patrocina Critical Skills. Portal amazon.jobs proprio, sem JSON simples publico.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="galway,dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="cisco galway dublin grande centro de engenharia em oranmore/galway (ex-aquisicao) alem de dublin. engenharia de software/redes, produto, negocios. patrocina. portal jobs.cisco.com proprio, sem json board publico simples.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Cisco</span><span class="vgloc">Galway · Dublin · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://jobs.cisco.com/jobs/SearchJobs/?21178=%5B168%5D&amp;21178_format=6020" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Grande centro de engenharia em Oranmore/Galway (ex-aquisicao) alem de Dublin. Engenharia de software/redes, produto, negocios. Patrocina. Portal jobs.cisco.com proprio, sem JSON board publico simples.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="google dublin emea hq em dublin (grand canal dock, barrow street), milhares de funcionarios. contrata swe, pm, program/product manager e roles de negocios. patrocina critical skills rotineiramente. sistema proprio, sem json publico.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Google</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://www.google.com/about/careers/applications/jobs/results/?location=Ireland" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">EMEA HQ em Dublin (Grand Canal Dock, Barrow Street), milhares de funcionarios. Contrata SWE, PM, program/product manager e roles de negocios. Patrocina Critical Skills rotineiramente. Sistema proprio, sem JSON publico.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="leixlip,remoto" data-vagas="0" data-patroc="Sim" data-search="intel leixlip fab e campus enorme em leixlip (condado de kildare, perto de dublin). forte em engenharia (hardware, software, manufatura) e tambem program/project management. patrocina critical skills. ats proprio (workday/interno), sem json simples.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Intel</span><span class="vgloc">Leixlip · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://jobs.intel.com/en/search-jobs/Ireland" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Fab e campus enorme em Leixlip (Condado de Kildare, perto de Dublin). Forte em engenharia (hardware, software, manufatura) e tambem program/project management. Patrocina Critical Skills. ATS proprio (Workday/interno), sem JSON simples.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="linkedin dublin hq emea em wilton place, dublin (subsidiaria da microsoft). engenharia, produto, sales/business ops. patrocina. careers via careers.linkedin.com / busca do proprio linkedin, sem json publico simples.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">LinkedIn</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://www.linkedin.com/jobs/search/?f_C=1337&amp;location=Ireland" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">HQ EMEA em Wilton Place, Dublin (subsidiaria da Microsoft). Engenharia, produto, sales/business ops. Patrocina. Careers via careers.linkedin.com / busca do proprio LinkedIn, sem JSON publico simples.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="mastercard dublin grande hub tech em leopardstown (dublin), muita engenharia e produto. careers em workday/proprio, sem json publico. patrocina critical skills com facilidade.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Mastercard</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://careers.mastercard.com/us/en/search-results?keywords=Dublin" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Grande hub tech em Leopardstown (Dublin), muita engenharia e produto. Careers em Workday/proprio, sem JSON publico. Patrocina Critical Skills com facilidade.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="meta dublin hq internacional em dublin (ballsbridge / fibonacci). engenharia, produto e muitas funcoes de negocio/ops. patrocina permit. sistema proprio (metacareers), sem endpoint json simples.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Meta</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://www.metacareers.com/jobs?offices[0]=Dublin%2C%20Ireland" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">HQ internacional em Dublin (Ballsbridge / Fibonacci). Engenharia, produto e muitas funcoes de negocio/ops. Patrocina permit. Sistema proprio (metacareers), sem endpoint JSON simples.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="microsoft dublin one microsoft place em leopardstown (dublin). engenharia, product/program management, negocios. linkedin (subsidiaria) tambem em dublin. patrocina. sistema proprio de recrutamento.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Microsoft</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://jobs.careers.microsoft.com/global/en/search?lc=Ireland" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">One Microsoft Place em Leopardstown (Dublin). Engenharia, product/program management, negocios. LinkedIn (subsidiaria) tambem em Dublin. Patrocina. Sistema proprio de recrutamento.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="oracle dublin emea hq em dublin (east point business park); oci (oracle cloud) contrata engenharia. tambem product e negocios. patrocina. usa oracle recruiting cloud proprio, sem json board publico simples.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Oracle</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://careers.oracle.com/jobs/#en/sites/jobsearch/jobs?location=Ireland" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">EMEA HQ em Dublin (East Point Business Park); OCI (Oracle Cloud) contrata engenharia. Tambem product e negocios. Patrocina. Usa Oracle Recruiting Cloud proprio, sem JSON board publico simples.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="salesforce dublin grande torre no docklands de dublin (salesforce tower). engenharia, product management e muitas funcoes de negocio/sales. patrocina. ats workday, sem json publico simples.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Salesforce</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://careers.salesforce.com/en/jobs/?search=&amp;country=Ireland" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Grande torre no Docklands de Dublin (Salesforce Tower). Engenharia, product management e muitas funcoes de negocio/sales. Patrocina. ATS Workday, sem JSON publico simples.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,galway,remoto" data-vagas="0" data-patroc="Sim" data-search="sap dublin galway escritorios em dublin e galway (grande centro de desenvolvimento em galway). engenharia, produto, consultoria e negocios. patrocina. ats successfactors (jobs.sap.com), sem json board publico simples.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">SAP</span><span class="vgloc">Dublin · Galway · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://jobs.sap.com/search/?locationsearch=Ireland" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Escritorios em Dublin e Galway (grande centro de desenvolvimento em Galway). Engenharia, produto, consultoria e negocios. Patrocina. ATS SuccessFactors (jobs.sap.com), sem JSON board publico simples.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Produto / Projeto / Negocios|Engenharia de software" data-loc="dublin,remoto" data-vagas="1" data-patroc="Sim" data-search="servicenow dublin escritorio em dublin (dawson st). endpoint smartrecruiters testado: 4 vagas na irlanda (no momento vendas/eng/financas; solution consultant e o mais proximo de produto/negocios). globalmente contrata muito produto/consultoria. patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">ServiceNow</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip g">Produto/Negócios</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jhdr">1 vaga aberta <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="https://jobs.smartrecruiters.com/ServiceNow/744000138203669" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Staff Site Reliability Engineer</span><small>Dublin, ie</small></a><a class="jmore" href="https://careers.smartrecruiters.com/ServiceNow?location=Ireland" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Escritorio em Dublin (Dawson St). Endpoint SmartRecruiters testado: 4 vagas na Irlanda (no momento vendas/eng/financas; solution consultant e o mais proximo de produto/negocios). Globalmente contrata muito produto/consultoria. Patrocina.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="18" data-patroc="Sim" data-search="stripe dublin fundadores irlandeses (irmaos collison); escritorio grande em dublin. verificado via greenhouse token 'stripe': ~15 vagas na irlanda (dublin), mix de negocios/ops e engenharia. patrocina. endpoint json publico funciona.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Stripe</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jhdr">18 vagas abertas <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="https://stripe.com/jobs/search?gh_jid=4921361" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Backend Engineer/API, Payments and Risk</span><small>Dublin, Ireland</small></a><a class="jrow" href="https://stripe.com/jobs/search?gh_jid=8055050" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Forward Deployed Engineer, Professional Services</span><small>Dublin, Ireland</small></a><a class="jrow" href="https://stripe.com/jobs/search?gh_jid=8009604" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Forward Deployed Integration Engineer, Professional Services</span><small>Dublin</small></a><a class="jrow" href="https://stripe.com/jobs/search?gh_jid=7896525" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Integration Engineer (Client facing), Professional Services</span><small>Dublin</small></a><a class="jrow" href="https://stripe.com/jobs/search?gh_jid=7768979" target="_blank" rel="noopener"><span class="jtag prod">Produto</span><span class="jtit">Product Lead, EMEA Payments</span><small>Dublin</small></a><a class="jrow" href="https://stripe.com/jobs/search?gh_jid=7943244" target="_blank" rel="noopener"><span class="jtag prod">Produto</span><span class="jtit">Product Manager, Ecosystem Risk</span><small>Dublin</small></a><a class="jrow" href="https://stripe.com/jobs/search?gh_jid=8041655" target="_blank" rel="noopener"><span class="jtag prod">Produto</span><span class="jtit">Product Manager, E-Invoicing</span><small>Dublin, Ireland</small></a><a class="jrow" href="https://stripe.com/jobs/search?gh_jid=7776179" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Security Engineer, Bridge</span><small>SF, New York, Seattle, Dublin</small></a><a class="jmore" href="https://stripe.com/jobs/search?office_locations=dublin" target="_blank" rel="noopener">+ 10 outras no site →</a></div></div>
+    <p class="vgnota">Fundadores irlandeses (irmaos Collison); escritorio grande em Dublin. VERIFICADO via Greenhouse token 'stripe': ~15 vagas na Irlanda (Dublin), mix de negocios/ops e engenharia. Patrocina. Endpoint JSON publico funciona.</p>
+  </article><article class="card vgcard" data-porte="big" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="workday dublin hq emea em dublin (kings building / grand canal). engenharia de software, product, negocios. patrocina. usa o proprio workday recruiting (ironia), sem json board publico simples.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Workday</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte big">Big tech</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://www.workday.com/en-us/company/careers/emea.html" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">HQ EMEA em Dublin (Kings Building / Grand Canal). Engenharia de software, product, negocios. Patrocina. Usa o proprio Workday Recruiting (ironia), sem JSON board publico simples.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="limerick,dublin,remoto" data-vagas="0" data-patroc="Provavel" data-search="amcs group limerick dublin saas de sustentabilidade/gestao de residuos, hq em limerick, ~12 vagas na irlanda. usa hirehive (amcsgroup.hirehive.com), fora dos ats com json publico padrao. contrata eng e negocios.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">AMCS Group</span><span class="vgloc">Limerick · Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://amcsgroup.hirehive.com/" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">SaaS de sustentabilidade/gestao de residuos, HQ em Limerick, ~12 vagas na Irlanda. Usa HireHive (amcsgroup.hirehive.com), fora dos ATS com JSON publico padrao. Contrata eng e negocios.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software" data-loc="dublin,remoto" data-vagas="2" data-patroc="Provavel" data-search="contentful dublin headless cms, hub de engenharia em dublin. board greenhouse verificado: 2 vagas na irlanda, ambas eng (content api, ml). provavelmente patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Contentful</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jhdr">2 vagas abertas <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="https://job-boards.greenhouse.io/contentful/jobs/8050574" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Engineering Manager - Content API (f/m/d)</span><small>Dublin, Dublin, Ireland</small></a><a class="jrow" href="https://job-boards.greenhouse.io/contentful/jobs/7557680" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Senior Software Engineer - Machine Learning (f/m/d)</span><small>Dublin, Dublin, Ireland</small></a><a class="jmore" href="https://www.contentful.com/careers/" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Headless CMS, hub de engenharia em Dublin. Board Greenhouse verificado: 2 vagas na Irlanda, ambas eng (Content API, ML). Provavelmente patrocina.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="8" data-patroc="Sim" data-search="datadog dublin observabilidade/cloud, escritorio emea em dublin. board greenhouse verificado: 7 vagas na irlanda (sales eng, comercial, deal desk). patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Datadog</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jhdr">8 vagas abertas <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="https://careers.datadoghq.com/detail/8055109/?gh_jid=8055109" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Commercial Sales Engineer (Dublin)</span><small>Dublin, Ireland</small></a><a class="jrow" href="https://careers.datadoghq.com/detail/7496237/?gh_jid=7496237" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Manager II, Premier Support Engineering - EMEA</span><small>Dublin, Ireland +1</small></a><a class="jrow" href="https://careers.datadoghq.com/detail/7996898/?gh_jid=7996898" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Senior Security Engineer - Cloud SIEM</span><small>Dublin, Ireland +2</small></a><a class="jrow" href="https://careers.datadoghq.com/detail/7957460/?gh_jid=7957460" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Senior Software Engineer - Linux/eBPF</span><small>Ireland, Remote +9</small></a><a class="jrow" href="https://careers.datadoghq.com/detail/7959962/?gh_jid=7959962" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Senior Software Engineer - REDAPL Graph Engine</span><small>Dublin, Ireland +2</small></a><a class="jrow" href="https://careers.datadoghq.com/detail/8007598/?gh_jid=8007598" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Staff Software Engineer - Security Agent</span><small>Ireland, Remote +4</small></a><a class="jrow" href="https://careers.datadoghq.com/detail/8053105/?gh_jid=8053105" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Technical Escalations Engineer 2 (Agent) - Dublin</span><small>Dublin, Ireland</small></a><a class="jrow" href="https://careers.datadoghq.com/detail/7496253/?gh_jid=7496253" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Technical Support Engineer 2, Premier - EMEA</span><small>Dublin, Ireland +1</small></a><a class="jmore" href="https://careers.datadoghq.com/all-jobs/?s=Dublin" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Observabilidade/cloud, escritorio EMEA em Dublin. Board Greenhouse verificado: 7 vagas na Irlanda (sales eng, comercial, deal desk). Patrocina.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="galway,remoto" data-vagas="0" data-patroc="Provavel" data-search="datavant galway segunda citada pela amiga. health data, remote-friendly, com centro de r&amp;d em galway (eng, produto, design, seguranca, data). endpoint greenhouse datavant2 verificado (101 vagas), mas no momento da checagem 0 vagas na irlanda ou remoto emea (todas us, algumas barcelona). vale monitorar a pagina ireland: quando abre vaga tecnica em galway, patrocinio de critical skills e provavel.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Datavant</span><span class="vgloc">Galway · Remoto</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jnone">Sem vaga nas suas áreas agora. <a href="https://www.datavant.com/about/careers/open-roles-ireland" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Segunda citada pela amiga. Health data, remote-friendly, com centro de R&amp;D em Galway (eng, produto, design, seguranca, data). Endpoint Greenhouse datavant2 verificado (101 vagas), mas no momento da checagem 0 vagas na Irlanda ou remoto EMEA (todas US, algumas Barcelona). Vale monitorar a pagina Ireland: quando abre vaga tecnica em Galway, patrocinio de Critical Skills e provavel.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="1" data-patroc="Provavel" data-search="distilled dublin uma das duas citadas pela amiga. grupo irlandes dono de daft.ie, donedeal.ie e adverts.ie (marketplaces). ats recruitee verificado: 5 vagas, 4 na irlanda (dublin/hibrido), sobretudo produto/design/negocios no snapshot; historicamente contrata software engineers (glassdoor mostra software/senior software engineer). empresa irlandesa: patrocinio de critical skills plausivel para eng, menos garantido para produto/negocios.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Distilled</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jhdr">1 vaga aberta <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="https://distilled.recruitee.com/o/snr-pm-daft" target="_blank" rel="noopener"><span class="jtag prod">Produto</span><span class="jtit">Senior Product Manager</span><small>Dublin/Hybrid, Ireland (remote)</small></a><a class="jmore" href="https://distilled.recruitee.com/" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Uma das duas citadas pela amiga. Grupo irlandes dono de Daft.ie, DoneDeal.ie e Adverts.ie (marketplaces). ATS Recruitee verificado: 5 vagas, 4 na Irlanda (Dublin/hibrido), sobretudo produto/design/negocios no snapshot; historicamente contrata software engineers (Glassdoor mostra Software/Senior Software Engineer). Empresa irlandesa: patrocinio de Critical Skills plausivel para eng, menos garantido para produto/negocios.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Provavel" data-search="fenergo dublin regtech (client lifecycle management), hq em dublin. ats workable token 'fenergocareers' verificado: 2 vagas na irlanda no momento (procurement, grad). contrata eng regularmente. provavelmente patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Fenergo</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jnone">Sem vaga nas suas áreas agora. <a href="https://apply.workable.com/fenergocareers/" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">RegTech (Client Lifecycle Management), HQ em Dublin. ATS Workable token 'fenergocareers' verificado: 2 vagas na Irlanda no momento (procurement, grad). Contrata eng regularmente. Provavelmente patrocina.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Provavel" data-search="fineos dublin software core para seguros de vida/saude, hq em dublin. usa careers.fineos.com (sap successfactors), sem json publico simples. ~7 vagas na irlanda em buscas recentes. contrata eng e negocios.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Fineos</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://careers.fineos.com/viewalljobs/" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Software core para seguros de vida/saude, HQ em Dublin. Usa careers.fineos.com (SAP SuccessFactors), sem JSON publico simples. ~7 vagas na Irlanda em buscas recentes. Contrata eng e negocios.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Provavel" data-search="flipdish dublin unicornio irlandes de tech para restaurantes, escritorio em dublin. board greenhouse (instancia eu) token 'flipdish' verificado via boards-api: 2 vagas na irlanda ao vivo, mas board mostra tambem swe/react native. provavelmente patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Flipdish</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jnone">Sem vaga nas suas áreas agora. <a href="https://job-boards.eu.greenhouse.io/flipdish" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Unicornio irlandes de tech para restaurantes, escritorio em Dublin. Board Greenhouse (instancia EU) token 'flipdish' verificado via boards-api: 2 vagas na Irlanda ao vivo, mas board mostra tambem SWE/React Native. Provavelmente patrocina.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Produto / Projeto / Negocios|Engenharia de software" data-loc="galway,dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="genesys galway dublin saas de cx/contact center, com escritorio em galway. vagas de product manager e product design em galway. usa workday (tenant genesys, genesys.wd1.myworkdayjobs.com) que exige post, sem json get publico.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Genesys</span><span class="vgloc">Galway · Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip g">Produto/Negócios</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://genesys.wd1.myworkdayjobs.com/en-US/Genesys" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">SaaS de CX/contact center, com escritorio em Galway. Vagas de Product Manager e Product Design em Galway. Usa Workday (tenant genesys, genesys.wd1.myworkdayjobs.com) que exige POST, sem JSON GET publico.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="guidewire dublin software p&amp;c insurance, escritorio grande de engenharia em dublin (~15-22 vagas na irlanda segundo buscas). usa workday (guidewire.wd5.myworkdayjobs.com), sem json publico simples. multinacional que patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Guidewire</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://guidewire.wd5.myworkdayjobs.com/en-US/external?locations=Ireland" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Software P&amp;C insurance, escritorio grande de engenharia em Dublin (~15-22 vagas na Irlanda segundo buscas). Usa Workday (guidewire.wd5.myworkdayjobs.com), sem JSON publico simples. Multinacional que patrocina.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="2" data-patroc="Sim" data-search="hubspot dublin emea hq em dublin, grande empregador. board greenhouse token 'hubspotjobs' verificado: 13 vagas na irlanda, foco forte em vendas/bdr/ae mas tambem eng. patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">HubSpot</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jhdr">2 vagas abertas <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="https://www.hubspot.com/careers/jobs/8001131?gh_jid=8001131" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Senior Solutions Architect</span><small>Dublin, Ireland</small></a><a class="jrow" href="https://www.hubspot.com/careers/jobs/7741758?gh_jid=7741758" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Senior Solutions Engineer - Polish speaking</span><small>Flex - Dublin, Ireland</small></a><a class="jmore" href="https://job-boards.greenhouse.io/hubspotjobs" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">EMEA HQ em Dublin, grande empregador. Board Greenhouse token 'hubspotjobs' verificado: 13 vagas na Irlanda, foco forte em vendas/BDR/AE mas tambem eng. Patrocina.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="28" data-patroc="Sim" data-search="intercom dublin scaleup de customer messaging fundada em dublin, escritorio grande na cidade. 34 vagas na irlanda hoje (eng, ml, design, vendas). board greenhouse aberto e verificado. patrocina critical skills.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Intercom</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jhdr">28 vagas abertas <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="https://job-boards.greenhouse.io/intercom/jobs/7820671" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">AI Infrastructure Engineer</span><small>Dublin, Ireland</small></a><a class="jrow" href="https://job-boards.greenhouse.io/intercom/jobs/8018140" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Application Security Engineer</span><small>Dublin, Ireland</small></a><a class="jrow" href="https://job-boards.greenhouse.io/intercom/jobs/8028029" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Cloud Security Engineer</span><small>Dublin, Ireland</small></a><a class="jrow" href="https://job-boards.greenhouse.io/intercom/jobs/7784684" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Engineering Manager, AI Models Infrastructure</span><small>Dublin, Ireland +1</small></a><a class="jrow" href="https://job-boards.greenhouse.io/intercom/jobs/7818585" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Engineering Manager, AI Models Infrastructure</span><small>Dublin, Ireland</small></a><a class="jrow" href="https://job-boards.greenhouse.io/intercom/jobs/7982566" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Forward Deployed Software Engineer</span><small>Dublin, Ireland</small></a><a class="jrow" href="https://job-boards.greenhouse.io/intercom/jobs/7930382" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">IT Systems Engineer</span><small>Dublin, Ireland +1</small></a><a class="jrow" href="https://job-boards.greenhouse.io/intercom/jobs/6386426" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Principal Engineer</span><small>Dublin, Ireland</small></a><a class="jmore" href="https://job-boards.greenhouse.io/intercom" target="_blank" rel="noopener">+ 20 outras no site →</a></div></div>
+    <p class="vgnota">Scaleup de customer messaging fundada em Dublin, escritorio grande na cidade. 34 vagas na Irlanda hoje (eng, ML, design, vendas). Board Greenhouse aberto e verificado. Patrocina Critical Skills.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Produto / Projeto / Negocios|Engenharia de software" data-loc="dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="kaseya dublin saas de it management (eua) expandindo em dublin (120+ pessoas, meta de 500). contrata r&amp;d, professional services, support e sales; pm/produto via r&amp;d. testei smartrecruiters (token kaseya) e retornou 0: usa sistema proprio. patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Kaseya</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip g">Produto/Negócios</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://www.kaseya.com/careers/ireland/" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">SaaS de IT management (EUA) expandindo em Dublin (120+ pessoas, meta de 500). Contrata R&amp;D, Professional Services, Support e Sales; PM/produto via R&amp;D. Testei SmartRecruiters (token kaseya) e retornou 0: usa sistema proprio. Patrocina.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Provavel" data-search="keywords studios dublin servicos para industria de games (art, engenharia de software, testing, localizacao). escritorio irlandes em leopardstown, dublin (nao cork), por isso cork=false. salarios de dublin considerados baixos em reviews. patrocinio provavel para papeis de engenharia mais senior; confirme.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Keywords Studios</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://www.keywordsstudios.com/en/careers/" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Servicos para industria de games (art, engenharia de software, testing, localizacao). Escritorio irlandes em Leopardstown, Dublin (NAO Cork), por isso cork=false. Salarios de Dublin considerados baixos em reviews. Patrocinio provavel para papeis de engenharia mais senior; confirme.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="2" data-patroc="Provavel" data-search="learnupon dublin saas de lms (treinamento corporativo), hq dublin. ats greenhouse verificado: 8 vagas, 7 em dublin incluindo dois staff engineer (devops e sre) mais roles de negocios/marketing. oferece pension, health, esop. boa densidade de vagas na irlanda; patrocinio provavel para eng.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">LearnUpon</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jhdr">2 vagas abertas <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="https://job-boards.greenhouse.io/learnupon/jobs/8341543002" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Staff Engineer, DevOps</span><small>Dublin</small></a><a class="jrow" href="https://job-boards.greenhouse.io/learnupon/jobs/8138393002" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Staff Engineer, Site Reliability</span><small>Dublin</small></a><a class="jmore" href="https://job-boards.greenhouse.io/learnupon" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">SaaS de LMS (treinamento corporativo), HQ Dublin. ATS Greenhouse verificado: 8 vagas, 7 em Dublin incluindo dois Staff Engineer (DevOps e SRE) mais roles de negocios/marketing. Oferece pension, health, ESOP. Boa densidade de vagas na Irlanda; patrocinio provavel para eng.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="1" data-patroc="Provavel" data-search="letsgetchecked dublin healthtech (testes de saude em casa), hq em dublin. board greenhouse verificado, mas poucas vagas abertas agora (1 na irlanda: qa engineer). volume ja foi bem maior. provavelmente patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">LetsGetChecked</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jhdr">1 vaga aberta <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="https://job-boards.eu.greenhouse.io/letsgetchecked/jobs/4877532101" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">QA Engineer - Fuze Services</span><small>Dublin, Ireland</small></a><a class="jmore" href="https://job-boards.greenhouse.io/letsgetchecked" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Healthtech (testes de saude em casa), HQ em Dublin. Board Greenhouse verificado, mas poucas vagas abertas agora (1 na Irlanda: QA Engineer). Volume ja foi bem maior. Provavelmente patrocina.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software" data-loc="dublin" data-vagas="0" data-patroc="Provavel" data-search="manna drone delivery dublin startup de entrega por drone autonomo (aviacao), base dublin. ats workable verificado: 8 vagas na irlanda, quase todas de engenharia (software, embedded/aircraft, rf, mechanical, systems integration). muito forte para engenharia de software/embarcada; produto/negocios quase inexistente. roles presenciais (hardware/aviacao). patrocinio provavel para eng.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Manna Drone Delivery</span><span class="vgloc">Dublin</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jnone">Sem vaga nas suas áreas agora. <a href="https://apply.workable.com/manna-1/" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Startup de entrega por drone autonomo (aviacao), base Dublin. ATS Workable verificado: 8 vagas na Irlanda, quase todas de engenharia (Software, Embedded/Aircraft, RF, Mechanical, Systems Integration). Muito forte para engenharia de software/embarcada; produto/negocios quase inexistente. Roles presenciais (hardware/aviacao). Patrocinio provavel para eng.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="3" data-patroc="Provavel" data-search="qualio dublin saas de gestao de qualidade para life sciences (healthtech), all-remote com escritorio em dublin. ats greenhouse verificado: 10 vagas, 4 elegiveis irlanda/eu sendo 3 de engenharia (full stack, senior full stack, eng manager) baseadas na irlanda. forte foco em eng remoto irlanda.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Qualio</span><span class="vgloc">Dublin · Remoto</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jhdr">3 vagas abertas <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="https://job-boards.greenhouse.io/qualio/jobs/7628600003" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Full Stack Engineer (Remote Ireland / UK)</span><small>Ireland</small></a><a class="jrow" href="https://job-boards.greenhouse.io/qualio/jobs/7800859003" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Senior Engineering Manager (Hands-on)</span><small>Ireland</small></a><a class="jrow" href="https://job-boards.greenhouse.io/qualio/jobs/7628607003" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Senior Full Stack Engineer (Remote Ireland / UK)</span><small>Ireland</small></a><a class="jmore" href="https://job-boards.greenhouse.io/qualio" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">SaaS de gestao de qualidade para life sciences (healthtech), all-remote com escritorio em Dublin. ATS Greenhouse verificado: 10 vagas, 4 elegiveis Irlanda/EU sendo 3 de engenharia (Full Stack, Senior Full Stack, Eng Manager) baseadas na Irlanda. Forte foco em eng remoto Irlanda.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin" data-vagas="0" data-patroc="Provavel" data-search="ryanair labs dublin hub de tech da ryanair em dublin norte, +600 profissionais (angular, aws serverless). usa careers.ryanair.com / jobs.ryanair.com (sap successfactors), sem json publico simples. muitas vagas de eng e qa/pm.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Ryanair Labs</span><span class="vgloc">Dublin</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://careers.ryanair.com/it-labs/" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Hub de tech da Ryanair em Dublin Norte, +600 profissionais (Angular, AWS serverless). Usa careers.ryanair.com / jobs.ryanair.com (SAP SuccessFactors), sem JSON publico simples. Muitas vagas de eng e QA/PM.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="galway,dublin,remoto" data-vagas="0" data-patroc="Provavel" data-search="smartbear galway dublin candidata da lista, mas nao tem escritorio em cork: base irlandesa e galway (mayoralty house) e dublin. saas de qualidade de software, contrata engenharia e produto. incluida por completude com cork=false. confirme patrocinio (us saas costuma patrocinar).">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">SmartBear</span><span class="vgloc">Galway · Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://smartbear.com/company/careers/" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Candidata da lista, mas NAO tem escritorio em Cork: base irlandesa e Galway (Mayoralty House) e Dublin. SaaS de qualidade de software, contrata engenharia e produto. Incluida por completude com cork=false. Confirme patrocinio (US SaaS costuma patrocinar).</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="4" data-patroc="Sim" data-search="squarespace dublin website builder com hub de engenharia em dublin. board greenhouse verificado: 5 vagas na irlanda, forte em engenharia (managers, security, db). patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Squarespace</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jhdr">4 vagas abertas <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="http://www.squarespace.com/about/careers?gh_jid=7962046" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Database Engineering Team Manager</span><small>Dublin</small></a><a class="jrow" href="http://www.squarespace.com/about/careers?gh_jid=7943846" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Engineering Manager - PASS</span><small>Dublin</small></a><a class="jrow" href="http://www.squarespace.com/about/careers?gh_jid=7796885" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Engineering Team Manager - Financial Solutions</span><small>Dublin</small></a><a class="jrow" href="http://www.squarespace.com/about/careers?gh_jid=8013777" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Security Engineer - Incident Response</span><small>Dublin</small></a><a class="jmore" href="https://www.squarespace.com/careers/jobs" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Website builder com hub de engenharia em Dublin. Board Greenhouse verificado: 5 vagas na Irlanda, forte em engenharia (managers, security, DB). Patrocina.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="1" data-patroc="Provavel" data-search="tines dublin scaleup de security automation co-sediada em dublin e boston. board greenhouse verificado: 4 vagas na irlanda (swe, enablement, suporte). provavelmente patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Tines</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jhdr">1 vaga aberta <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="https://job-boards.greenhouse.io/tines/jobs/6108006004" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Software Engineer (back-end)</span><small>Ireland (Remote)</small></a><a class="jmore" href="https://www.tines.com/careers/" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Scaleup de security automation co-sediada em Dublin e Boston. Board Greenhouse verificado: 4 vagas na Irlanda (SWE, enablement, suporte). Provavelmente patrocina.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="kilkenny,dublin,remoto" data-vagas="0" data-patroc="Provavel" data-search="transfermate kilkenny dublin fintech de pagamentos b2b (grupo clunetech), presenca em kilkenny/dublin. ats workable token 'transfermate' confirmado, mas endpoint retornou 0 vagas ativas na verificacao (sem vagas abertas no momento). vale monitorar o board workable.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">TransferMate</span><span class="vgloc">Kilkenny · Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jnone">Sem vaga nas suas áreas agora. <a href="https://apply.workable.com/transfermate/" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Fintech de pagamentos B2B (grupo CluneTech), presenca em Kilkenny/Dublin. ATS Workable token 'transfermate' confirmado, mas endpoint retornou 0 vagas ativas na verificacao (sem vagas abertas no momento). Vale monitorar o board Workable.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Produto / Projeto / Negocios|Engenharia de software" data-loc="dublin,remoto" data-vagas="0" data-patroc="Provavel" data-search="udemy dublin edtech com hub emea em dublin. board greenhouse verificado: 3 vagas na irlanda (product design, renewals, legal). perfil mais produto/negocios que eng agora.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Udemy</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip g">Produto/Negócios</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jnone">Sem vaga nas suas áreas agora. <a href="https://about.udemy.com/careers/" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Edtech com hub EMEA em Dublin. Board Greenhouse verificado: 3 vagas na Irlanda (product design, renewals, legal). Perfil mais produto/negocios que eng agora.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Produto / Projeto / Negocios|Engenharia de software" data-loc="dublin,remoto" data-vagas="0" data-patroc="Provavel" data-search="wayflyer dublin unicornio fintech de dublin (revenue-based financing). ats ashby verificado: 2 vagas na irlanda hoje (bdr, credit analyst). volume varia, ja teve muito mais eng. provavelmente patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Wayflyer</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip g">Produto/Negócios</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jnone">Sem vaga nas suas áreas agora. <a href="https://jobs.ashbyhq.com/wayflyer" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Unicornio fintech de Dublin (revenue-based financing). ATS Ashby verificado: 2 vagas na Irlanda hoje (BDR, credit analyst). Volume varia, ja teve muito mais eng. Provavelmente patrocina.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Produto / Projeto / Negocios|Engenharia de software" data-loc="dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="workhuman dublin saas de reconhecimento/hr, co-sede em dublin (park west). contrata product managers em dublin. usa workday (tenant workhuman, site workhumancareers), sem json get publico. patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Workhuman</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip g">Produto/Negócios</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://workhuman.wd1.myworkdayjobs.com/WorkhumanCareers" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">SaaS de reconhecimento/HR, co-sede em Dublin (Park West). Contrata Product Managers em Dublin. Usa Workday (tenant workhuman, site WorkhumanCareers), sem JSON GET publico. Patrocina.</p>
+  </article><article class="card vgcard" data-porte="med" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="0" data-patroc="Sim" data-search="zendesk dublin emea hq em dublin, muitas vagas (buscas mostram ~17 em dublin). usa portal proprio (jobs.zendesk.com), sem json publico simples. patrocina.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Zendesk</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte med">Media</span>
+    </div>
+    <div class="badges"><span class="chip b">✓ Patrocina visto</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://jobs.zendesk.com/us/en/dublin" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">EMEA HQ em Dublin, muitas vagas (buscas mostram ~17 em Dublin). Usa portal proprio (jobs.zendesk.com), sem JSON publico simples. Patrocina.</p>
+  </article><article class="card vgcard" data-porte="peq" data-areas="Produto / Projeto / Negocios|Engenharia de software" data-loc="dublin,remoto" data-vagas="0" data-patroc="Provavel" data-search="fire (fire financial services) dublin fintech de contas/pagamentos, escritorios em dublin e londres. contrata product owner e operations. pagina de carreiras propria (candidaturas carregam dinamicamente), sem json simples. menor porte: patrocinio provavel mas nao confirmado.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Fire (Fire Financial Services)</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte peq">Pequena</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip g">Produto/Negócios</span><span class="chip b">Engenharia</span></div>
+    <div class="vgjobs"><div class="jlink"><a href="https://www.fire.com/about/careers/" target="_blank" rel="noopener">Ver vagas no site →</a><small>puxa manual (sem API pública)</small></div></div>
+    <p class="vgnota">Fintech de contas/pagamentos, escritorios em Dublin e Londres. Contrata Product Owner e Operations. Pagina de carreiras propria (candidaturas carregam dinamicamente), sem JSON simples. Menor porte: patrocinio provavel mas nao confirmado.</p>
+  </article><article class="card vgcard" data-porte="peq" data-areas="Engenharia de software|Produto / Projeto / Negocios" data-loc="dublin,remoto" data-vagas="3" data-patroc="Provavel" data-search="nory dublin startup de ia operacional para restaurantes, base dublin. ats ashby verificado: 7 vagas, 4 com dublin incluindo staff engineer, senior product engineer e senior product designer. otima cobertura das duas areas-alvo (eng + produto). startup: patrocinio provavel em roles senior.">
+    <div class="vghead">
+      <div class="vgtitle"><span class="vgname">Nory</span><span class="vgloc">Dublin · Híbrido</span></div>
+      <span class="vgporte peq">Pequena</span>
+    </div>
+    <div class="badges"><span class="chip">Provável patrocínio</span><span class="chip b">Engenharia</span><span class="chip g">Produto/Negócios</span></div>
+    <div class="vgjobs"><div class="jhdr">3 vagas abertas <small>(eng/produto, Irlanda)</small></div><div class="jlist"><a class="jrow" href="https://jobs.ashbyhq.com/nory/58aff69e-12be-4e26-953b-ffb6915ec701" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Staff Engineer</span><small>Dublin, Spain, London - Hybrid</small></a><a class="jrow" href="https://jobs.ashbyhq.com/nory/4bff3935-9540-4355-b354-96956cd9e431" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Senior Product Engineer - Insights</span><small>Dublin, Spain, London - Hybrid</small></a><a class="jrow" href="https://jobs.ashbyhq.com/nory/8c6b28d1-9576-4e95-bc3c-3ce1475bc9ff" target="_blank" rel="noopener"><span class="jtag eng">Eng</span><span class="jtit">Senior Mobile Engineer</span><small>Spain, Dublin, London - Hybrid</small></a><a class="jmore" href="https://jobs.ashbyhq.com/nory" target="_blank" rel="noopener">Ver carreiras →</a></div></div>
+    <p class="vgnota">Startup de IA operacional para restaurantes, base Dublin. ATS Ashby verificado: 7 vagas, 4 com Dublin incluindo Staff Engineer, Senior Product Engineer e Senior Product Designer. Otima cobertura das duas areas-alvo (eng + produto). Startup: patrocinio provavel em roles senior.</p>
+  </article></div>
+    <p class="vgfoot"><b>Fonte.</b> Vagas puxadas em 2026-07-17 das APIs públicas de cada empresa (Greenhouse, Lever, Ashby, SmartRecruiters, Workable, Recruitee). Para atualizar: <code>node catalogo/fetch-vagas.mjs</code> e depois <code>node catalogo/build.mjs</code>. Patrocínio de visto é indicação geral (big techs e SaaS de engenharia costumam patrocinar Critical Skills), sempre confirme na vaga.</p>
   </div>
   
   <div class="venda hidden" id="pousoSection">
@@ -510,17 +1125,19 @@ function render(){
 }
 function setEtapa(e){
   currentEtapa=e;
-  var venda=e==='Venda', pouso=e==='Fase 0', gatos=e==='Gatos';
+  var venda=e==='Venda', pouso=e==='Fase 0', gatos=e==='Gatos', vagas=e==='Vagas';
   var grid=(e==='Etapa 1'||e==='Etapa 2'); // só estas usam a grade/mapa de anúncios
   document.getElementById('tabE1').classList.toggle('active',e==='Etapa 1');
   document.getElementById('tabE2').classList.toggle('active',e==='Etapa 2');
   var tpb=document.getElementById('tabPouso'); if(tpb)tpb.classList.toggle('active',pouso);
   var tvb=document.getElementById('tabVenda'); if(tvb)tvb.classList.toggle('active',venda);
   var tgb=document.getElementById('tabGatos'); if(tgb)tgb.classList.toggle('active',gatos);
+  var tjb=document.getElementById('tabVagas'); if(tjb)tjb.classList.toggle('active',vagas);
   document.getElementById('subHousing').classList.toggle('hidden',!grid);
   var _subP=document.getElementById('subPouso'); if(_subP)_subP.classList.toggle('hidden',!pouso);
   var _subV=document.getElementById('subVenda'); if(_subV)_subV.classList.toggle('hidden',!venda);
   var _subG=document.getElementById('subGatos'); if(_subG)_subG.classList.toggle('hidden',!gatos);
+  var _subJ=document.getElementById('subVagas'); if(_subJ)_subJ.classList.toggle('hidden',!vagas);
   document.getElementById('statsE1').classList.toggle('hidden',e!=='Etapa 1');
   document.getElementById('statsE2').classList.toggle('hidden',e!=='Etapa 2');
   document.getElementById('noteE1').classList.toggle('hidden',e!=='Etapa 1');
@@ -531,6 +1148,8 @@ function setEtapa(e){
   var vs=document.getElementById('vendaSection'); if(vs)vs.classList.toggle('hidden',!venda);
   var sg=document.getElementById('statsGatos'); if(sg)sg.classList.toggle('hidden',!gatos);
   var gs=document.getElementById('gatosSection'); if(gs)gs.classList.toggle('hidden',!gatos);
+  var sj=document.getElementById('statsVagas'); if(sj)sj.classList.toggle('hidden',!vagas);
+  var js=document.getElementById('vagasSection'); if(js)js.classList.toggle('hidden',!vagas);
   document.getElementById('housingControls').classList.toggle('hidden',!grid);
   document.getElementById('layout').classList.toggle('hidden',!grid);
   document.querySelectorAll('.e1only').forEach(x=>x.classList.toggle('hidden',e!=='Etapa 1'));
@@ -544,6 +1163,7 @@ document.getElementById('tabE2').addEventListener('click',()=>setEtapa('Etapa 2'
 var _tabP=document.getElementById('tabPouso'); if(_tabP)_tabP.addEventListener('click',()=>setEtapa('Fase 0'));
 var _tabV=document.getElementById('tabVenda'); if(_tabV)_tabV.addEventListener('click',()=>setEtapa('Venda'));
 var _tabG=document.getElementById('tabGatos'); if(_tabG)_tabG.addEventListener('click',()=>setEtapa('Gatos'));
+var _tabJ=document.getElementById('tabVagas'); if(_tabJ)_tabJ.addEventListener('click',()=>setEtapa('Vagas'));
 ['fCat','fCasal','fPet','fBeds','sort','fMax'].forEach(id=>{const el=document.getElementById(id); if(el)el.addEventListener('input',render);});
 fArea.addEventListener('change',render);
 
@@ -665,6 +1285,37 @@ fillAreas(); render();
   }
 })();
 
+
+// ---- Aba Vagas: filtros client-side por show/hide dos cards ----
+(function(){
+  var grid=document.getElementById('vgGrid'); if(!grid)return;
+  var cards=[].slice.call(grid.querySelectorAll('.vgcard'));
+  var fP=document.getElementById('vgPorte'), fA=document.getElementById('vgArea'),
+      fL=document.getElementById('vgLoc'), fO=document.getElementById('vgOpen'),
+      fS=document.getElementById('vgSpon'), fT=document.getElementById('vgSearch'),
+      cnt=document.getElementById('vgCount');
+  function apply(){
+    var p=fP.value, a=fA.value, l=fL.value, onlyOpen=fO.checked, onlySpon=fS.checked,
+        q=(fT.value||'').trim().toLowerCase();
+    var vis=0;
+    cards.forEach(function(c){
+      var ok=true;
+      if(p && c.getAttribute('data-porte')!==p)ok=false;
+      if(a && (c.getAttribute('data-areas')||'').indexOf(a)<0)ok=false;
+      if(l && (c.getAttribute('data-loc')||'').indexOf(l)<0)ok=false;
+      if(onlyOpen && Number(c.getAttribute('data-vagas'))<=0)ok=false;
+      if(onlySpon && c.getAttribute('data-patroc')!=='Sim')ok=false;
+      if(q && (c.getAttribute('data-search')||'').indexOf(q)<0)ok=false;
+      c.classList.toggle('hidden',!ok);
+      if(ok)vis++;
+    });
+    cnt.textContent=vis+' de '+cards.length+' empresas';
+  }
+  [fP,fA,fL].forEach(function(el){el.addEventListener('change',apply);});
+  [fO,fS].forEach(function(el){el.addEventListener('change',apply);});
+  fT.addEventListener('input',apply);
+  apply();
+})();
 </script>
 </body>
 </html>
