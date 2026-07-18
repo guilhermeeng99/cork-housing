@@ -342,10 +342,10 @@
   <p class="sub" id="subHousing">Busca de moradia em Cork, Irlanda. Etapa 1: quarto ou lugar inteiro. Etapa 2: imóvel pet-friendly (2 quartos). Fonte: Daft.ie. Atualizado em 2026-07-06.</p>
   <p class="sub hidden" id="subPouso">Fase 0: acomodação temporária em Cork, da chegada (08/09/2026) até conseguir o quarto definitivo da Etapa 1. Não está inclusa no pacote da agência de intercâmbio, é paga à parte. Dados coletados em 16/07/2026 nas fontes diretas.</p>
   <p class="sub hidden" id="subVenda">Venda dos móveis do apartamento no Brasil antes da mudança (07/09/2026). A casa em Cork é mobiliada, então tudo sai. Preços com queda programada por semana.</p>
-  
+  <p class="sub hidden" id="subGatos">Adaptação dos 4 gatos na casa da Álika. Os 2 de vocês chegam em 04/08/2026, os 2 dela já moram lá, e nenhum dos quatro se conhece. Meta de convivência livre: 24/08. Protocolo baseado nas diretrizes da AAFP 2024.</p>
   <p class="sub hidden" id="subVagas">Mapa de empresas tech na Irlanda (todos os portes, com Dublin) e vagas abertas em Engenharia de software, Produto/Negócios e Design, puxadas direto do sistema de vagas de cada empresa. Ponte do visto de estudante para o de trabalho: veja quem costuma patrocinar Employment Permit. Snapshot de 2026-07-17.</p>
   <p class="sub hidden" id="subEmpregos">Empregos de chegada em Cork (barista, limpeza, retail, hospitalidade, cuidados) para os primeiros meses com visto de estudante. Empregadores locais que costumam contratar e buscas já filtradas por cargo. É um ponto de partida curado, não uma lista ao vivo: clique para ver e candidatar no site de cada um.</p>
-  
+  <p class="sub hidden" id="subBagagem">Malas para a mudança (Air France, só ida). Cada um leva 1 mala de 23 kg no despacho, 1 de bordo e 1 mochila. Só polipropileno (leve e resistente), e só modelos que cabem nos limites da AF. 3 orçamentos prontos e os modelos do bagaggio, com imagem e link.</p>
 
   <div class="tabnav">
     <div class="tabgroup">
@@ -361,8 +361,8 @@
       <span class="tglabel">📦 No Brasil, antes de ir <em>daqui</em></span>
       <div class="tabs">
         <button class="tab venda" id="tabVenda" data-etapa="Venda">Venda de móveis <small>desapego antes de ir</small></button>
-        
-        
+        <button class="tab venda" id="tabGatos" data-etapa="Gatos">Adaptação dos gatos <small>4 gatos, casa nova</small></button>
+        <button class="tab venda" id="tabBagagem" data-etapa="Bagagem">Bagagem <small>malas da mudança</small></button>
       </div>
     </div>
     <div class="tgsep" aria-hidden="true"></div>
@@ -404,6 +404,12 @@
     <div class="stat"><b id="vDias">-</b><span>dias até a mudança (07/09)</span></div>
   </div>
   
+  <div class="stats hidden" id="statsGatos">
+    <div class="stat hl"><b id="gDiasIni">-</b><span>dias até começar (04/08)</span></div>
+    <div class="stat"><b>20 dias</b><span>janela até 24/08</span></div>
+    <div class="stat"><b>5 fases</b><span>do protocolo</span></div>
+    <div class="stat"><b>5 de cada</b><span>recurso, para 4 gatos</span></div>
+  </div>
   
   <div class="stats hidden" id="statsVagas">
     <div class="stat"><b>68</b><span>empresas mapeadas</span></div>
@@ -419,6 +425,12 @@
     <div class="stat"><b>9</b><span>setores</span></div>
   </div>
   
+  <div class="stats hidden" id="statsBagagem">
+    <div class="stat hl"><b>R$ 1079,60</b><span>orçamento econômico (2+2+1)</span></div>
+    <div class="stat"><b>6</b><span>grandes que cabem</span></div>
+    <div class="stat"><b>5</b><span>bordos que cabem</span></div>
+    <div class="stat"><b>23 kg</b><span>despacho por pessoa</span></div>
+  </div>
 
   <div class="note" id="noteE1">
     <b>Quarto privativo:</b> quarto só de vocês numa casa com colegas nas áreas comuns. "Casal OK" = anúncio permite 2 pessoas. <b>Lugar inteiro:</b> estúdio ou 1 quarto sem colegas, mais caro (desde €1088). Cuidado com golpes: nunca pague antes de visita.
@@ -1353,11 +1365,203 @@
   </article></div>
     
     <details class="ecnotas"><summary><span class="vchev">▶</span> Como funciona trabalhar com visto de estudante (Stamp 2)</summary>
-      <ul><li>Stamp 2 (regra oficial WRC): 20h por semana em periodo de aulas e 40h por semana so em junho, julho, agosto, setembro e de 15/dez a 15/jan. E teto semanal (nao media) e soma todos os empregos. Confirme as datas exatas de ferias no calendario da sua escola.</li><li>Salario minimo nacional 2026: 14,15 euros/hora para 20 anos ou mais (subiu de 13,50 em 01/01/2026). Faixas menores por idade. Aldi e Lidl pagam acima (~15,40+). Cafe, fast food e hotel costumam pagar o minimo, as vezes com gorjeta.</li><li>PPS number (Personal Public Service) e obrigatorio para trabalhar legal e nao levar imposto de emergencia. Pede-se no MyWelfare/Intreo depois de chegar, com passaporte, IRP, comprovante de endereco em Cork e a carta de oferta de emprego (acelera). Muitas lojas contratam antes do PPS sair, mas regularize rapido.</li><li>Para receber salario precisa de conta bancaria irlandesa e telefone irlandes. Rapidos para quem chega: Revolut e N26 (abrem online); AIB e Bank of Ireland (agencia, pedem comprovante de endereco). Deixe pronto nas primeiras semanas.</li><li>Emergency tax: no comeco, sem PPS e sem registro no Revenue, descontam imposto alto. Registre o emprego no Revenue (myAccount) e peca o Tax Credit Certificate; o reembolso vem nos proximos pagamentos. Guarde todo payslip (holerite).</li><li>O metodo que mais funciona em Cork: alem de aplicar online, imprima varios CVs e entregue na mao (&quot;drop CV&quot;) nas lojas e cafes do centro (St Patrick's Street, Oliver Plunkett Street, Opera Lane) e nos shoppings (Mahon Point, Wilton, Douglas Court, Blackpool). Muito cafe e restaurante contrata assim.</li><li>CV irlandes: 1 a 2 paginas, SEM foto, sem data de nascimento e sem estado civil. Ponha telefone irlandes, endereco em Cork e uma linha &quot;Stamp 2, available 20h term-time / 40h during holidays&quot;. Referencias ajudam muito.</li><li>Boards para filtrar por Cork: Indeed (ie.indeed.com), Jobs.ie e IrishJobs.ie. No Indeed, busca por termo unico funciona melhor (ex.: &quot;barista&quot;, &quot;kitchen porter&quot;, &quot;housekeeping&quot;); juntar varias palavras zera os resultados. Filtre Part-time e &quot;last 3 days&quot;.</li><li>Jobs.ie e IrishJobs.ie sao do mesmo grupo e as vezes mostram tela de bloqueio ao abrir; num navegador humano normal os links de busca /jobs/{cargo}/in-cork abrem normalmente. O Indeed e o mais confiavel de abrir.</li><li>ATS irlandeses que vale criar perfil pronto: Rezoomo (usado por Costa, HSE South, Comfort Keepers) e Occupop (comum em home care e limpeza). Ter CV e perfil salvos acelera as candidaturas.</li><li>Mais faceis de comecar SEM certificado: barista, kitchen porter, cleaner/faxina, retail assistant e waiter/bar. Ja care/healthcare assistant costuma exigir QQI Level 5 e Garda vetting, e security exige PSA licence (algumas empresas de cuidados oferecem o QQI gratis).</li><li>Limpeza costuma ser turno de manha cedo (5h-8h) ou fim de tarde/noite (18h-21h), otimo para encaixar nas 20h e nas aulas. Musgrave (SuperValu/Centra, HQ em Cork) tambem tem vagas de armazem, alternativa ao atendimento.</li><li>Canais extras: grupos de Facebook/WhatsApp de brasileiros e estudantes em Cork (&quot;Brasileiros em Cork&quot;, &quot;Jobs in Cork&quot;), cartazes &quot;staff wanted&quot; na vitrine, e agencias de hospitalidade/limpeza (ex.: Excel Recruitment, Noel Recruitment). Fuja de &quot;cash in hand&quot; sem payslip: perde direitos e comprovacao de renda.</li><li>Aviso: valores e datas podem mudar. Antes de decidir, confirme nas fontes oficiais: citizensinformation.ie e workplacerelations.ie (horas do Stamp 2 e direitos) e revenue.ie (impostos e PPS).</li></ul>
+      <ul><li>Stamp 2 (regra oficial WRC): 20h por semana em periodo de aulas e 40h por semana so em junho, julho, agosto, setembro e de 15/dez a 15/jan. E teto semanal (nao media) e soma todos os empregos. Confirme as datas exatas de ferias no calendario da sua escola.</li><li>Salario minimo nacional 2026: 14,15 euros/hora para 20 anos ou mais (subiu de 13,50 em 01/01/2026). Faixas menores por idade. Aldi e Lidl pagam acima (~15,40+). Cafe, fast food e hotel costumam pagar o minimo, as vezes com gorjeta.</li><li>PPS number (Personal Public Service) e obrigatorio para trabalhar legal e nao levar imposto de emergencia. Pede-se no MyWelfare/Intreo depois de chegar, com passaporte, IRP, comprovante de endereco em Cork e a carta de oferta de emprego (acelera). Muitas lojas contratam antes do PPS sair, mas regularize rapido.</li><li>Conta bancaria: Revolut, N26 e Wise abrem online e MUITOS empregadores aceitam pagar salario neles, entao da para aceitar emprego antes da conta irlandesa sair. O AIB tambem abre 100% online pelo app (opcao BECOME AN AIB CUSTOMER, videochamada com passaporte, depois uma carta com codigo pelo correio e a conta ativa em ate 24h); o Bank of Ireland tem aplicacao online e o PTSB pede carta da escola, comprovante de endereco e passaporte na agencia. Telefone irlandes tambem e necessario.</li><li>Emergency tax: no comeco, sem PPS e sem registro no Revenue, descontam imposto alto. O documento que resolve hoje chama RPN (Revenue Payroll Notification), nao mais Tax Credit Certificate: o Revenue emite o RPN direto para o empregador. Passos: de seu PPS ao empregador, registre o emprego no Revenue (myAccount) e, se demorar, abra chamado em MY ENQUIRIES pedindo o RPN. O reembolso vem nos proximos pagamentos. Guarde todo payslip (holerite).</li><li>O metodo que mais funciona em Cork: alem de aplicar online, imprima varios CVs e entregue na mao (&quot;drop CV&quot;) nas lojas e cafes do centro (St Patrick's Street, Oliver Plunkett Street, Opera Lane) e nos shoppings (Mahon Point, Wilton, Douglas Court, Blackpool). Muito cafe e restaurante contrata assim.</li><li>CV irlandes: 1 a 2 paginas, SEM foto, sem data de nascimento e sem estado civil. Ponha telefone irlandes, endereco em Cork e uma linha &quot;Stamp 2, available 20h term-time / 40h during holidays&quot;. Referencias ajudam muito.</li><li>Boards para filtrar por Cork: Indeed (ie.indeed.com), Jobs.ie e IrishJobs.ie. No Indeed, busca por termo unico funciona melhor (ex.: &quot;barista&quot;, &quot;kitchen porter&quot;, &quot;housekeeping&quot;); juntar varias palavras zera os resultados. Filtre Part-time e &quot;last 3 days&quot;.</li><li>Jobs.ie e IrishJobs.ie sao do mesmo grupo e as vezes mostram tela de bloqueio ao abrir; num navegador humano normal os links de busca /jobs/{cargo}/in-cork abrem normalmente. O Indeed e o mais confiavel de abrir.</li><li>ATS irlandeses que vale criar perfil pronto: Rezoomo (usado por Costa, HSE South, Comfort Keepers) e Occupop (comum em home care e limpeza). Ter CV e perfil salvos acelera as candidaturas.</li><li>Mais faceis de comecar SEM certificado: barista, kitchen porter, cleaner/faxina, retail assistant e waiter/bar. Ja care/healthcare assistant costuma exigir QQI Level 5 e Garda vetting, e security exige PSA licence (algumas empresas de cuidados oferecem o QQI gratis).</li><li>Certificado barato que vale tirar cedo: Manual Handling Course. E curto e destrava armazem, logistica e hospitalidade, exatamente onde estao varios empregadores desta lista (Musgrave, SuperValu, Centra). Aparece como diferencial no modelo de CV da propria agencia, ao lado de 'Fluent in Portuguese and English'.</li><li>Limpeza costuma ser turno de manha cedo (5h-8h) ou fim de tarde/noite (18h-21h), otimo para encaixar nas 20h e nas aulas. Musgrave (SuperValu/Centra, HQ em Cork) tambem tem vagas de armazem, alternativa ao atendimento.</li><li>Canais extras: grupos de Facebook/WhatsApp de brasileiros e estudantes em Cork (&quot;Brasileiros em Cork&quot;, &quot;Jobs in Cork&quot;), cartazes &quot;staff wanted&quot; na vitrine, e agencias de hospitalidade/limpeza (ex.: Excel Recruitment, Noel Recruitment). Fuja de &quot;cash in hand&quot; sem payslip: perde direitos e comprovacao de renda.</li><li>Aviso: valores e datas podem mudar. Antes de decidir, confirme nas fontes oficiais: citizensinformation.ie e workplacerelations.ie (horas do Stamp 2 e direitos) e revenue.ie (impostos e PPS).</li></ul>
     </details>
     <p class="vgfoot"><b>Fonte.</b> Empregadores e buscas curados em 2026-07-17. Regras do Stamp 2 e salário mínimo podem mudar: confirme no site do INIS/serviço de imigração e na vaga. Este material é um ponto de partida, não aconselhamento de imigração.</p>
   </div>
   
+  <div class="bagagem hidden" id="bagagemSection">
+    <div class="note">
+      <b>Regras da Air France (confirmadas no bilhete de vocês).</b> <b>Despacho:</b> 1 mala de 23 kg por pessoa (confirmado no bilhete, nos dois trechos). Limite de tamanho: soma das 3 medidas ate 158 cm. <b>Cabine:</b> Economy: 1 mala de bordo (ate 55x35x25 cm) + 1 acessorio/mochila (ate 40x30x15 cm), somando no maximo 12 kg. <b>Trecho de Cork:</b> O trecho Paris-&gt;Cork e aviao regional (HOP): a mala de bordo pode ser despachada no portao (de graca). Leve documentos, remedios e eletronicos na mochila.
+    </div>
+    <h3 class="bgh">3 orçamentos <small>(2 grandes + 2 bordos + 1 mochila)</small></h3>
+    <div class="bgorcs"><div class="bgorc a">
+    <div class="bgorc-top"><span class="bgorc-tag">Econômico</span><span class="bgorc-total">≈ R$ 1079,60</span></div>
+    <ul class="bgorc-list">
+      <li><b>2×</b> Grande <a href="https://www.bagaggio.com.br/mala-de-viagem-grande-32-kg-polipropileno-4-rodas-rover-rose/p" target="_blank" rel="noopener">Rover Rosé</a> · R$ 349,90</li>
+      <li><b>2×</b> Bordo <a href="https://www.bagaggio.com.br/mala-de-bordo-polipropileno-4-rodas-mykonos-ii-preta/p" target="_blank" rel="noopener">Mykonos</a> · R$ 299,90</li>
+      <li><b>1×</b> Mochila (você) · R$ 79,90</li>
+    </ul>
+    <div class="bgorc-foot">Subtotal R$ 1379,50 · <span class="bgorc-promo">Leve 3 Pague 2 −R$ 299,90</span> · peso vazio das 4 malas ~12,5 kg</div>
+    <p class="bgorc-nota">Mais barato que cabe. A Rover grande é a mais leve e barata.</p>
+  </div><div class="bgorc b">
+    <div class="bgorc-top"><span class="bgorc-tag">Recomendado</span><span class="bgorc-total">≈ R$ 1429,60</span></div>
+    <ul class="bgorc-list">
+      <li><b>2×</b> Grande <a href="https://www.bagaggio.com.br/mala-de-viagem-grande-32kg-polipropileno-4-rodas-santiago-preta/p" target="_blank" rel="noopener">Santiago</a> · R$ 449,90</li>
+      <li><b>2×</b> Bordo <a href="https://www.bagaggio.com.br/mala-pequena-10kg-polipropileno-4-rodas-cartagena-rose/p" target="_blank" rel="noopener">Cartagena Rosé</a> · R$ 449,90</li>
+      <li><b>1×</b> Mochila (você) · R$ 79,90</li>
+    </ul>
+    <div class="bgorc-foot">Subtotal R$ 1879,50 · <span class="bgorc-promo">Leve 3 Pague 2 −R$ 449,90</span> · peso vazio das 4 malas ~13,8 kg</div>
+    <p class="bgorc-nota">As duas &quot;Recomendada&quot; (melhor equilíbrio de espaço, peso, rodas e segurança).</p>
+  </div><div class="bgorc c">
+    <div class="bgorc-top"><span class="bgorc-tag">Mais espaço</span><span class="bgorc-total">≈ R$ 1929,60</span></div>
+    <ul class="bgorc-list">
+      <li><b>2×</b> Grande <a href="https://www.bagaggio.com.br/mala-grande-32-kg-polipropileno-8-rodas--bagaggio-milao/p" target="_blank" rel="noopener">8 Rodas Bagaggio Milão</a> · R$ 699,90</li>
+      <li><b>2×</b> Bordo <a href="https://www.bagaggio.com.br/mala-pequena-10kg-polipropileno-4-rodas-cartagena-rose/p" target="_blank" rel="noopener">Cartagena Rosé</a> · R$ 449,90</li>
+      <li><b>1×</b> Mochila (você) · R$ 79,90</li>
+    </ul>
+    <div class="bgorc-foot">Subtotal R$ 2379,50 · <span class="bgorc-promo">Leve 3 Pague 2 −R$ 449,90</span> · peso vazio das 4 malas ~12,5 kg</div>
+    <p class="bgorc-nota">Prioriza capacidade e rodas: grande de 8 rodas (120L, super leve) + bordo Cartagena (51L).</p>
+  </div></div>
+    <p class="bgpromo"><b>Promo "Leve 3 Pague 2"</b> (cupom GANHEI, vi no site): põe <b>3 malas</b> num pedido e a mais barata sai grátis, por isso o desconto acima. Sujeito a regulamento/estoque, confirme no carrinho. Ainda tem 10% OFF na 1ª compra e desconto no Pix. Compre também uma <b>balança de mão</b> (~R$ 30) pra não estourar 23 kg no check-in.</p>
+    <h3 class="bgh">Malas grandes que cabem <small>(soma ≤ 158 cm) — polipropileno</small></h3>
+    <div class="bggrid"><article class="bgcard top">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mala-de-viagem-grande-32kg-polipropileno-4-rodas-santiago-preta/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2377441/0018990458005---MALA-SANTIAGO GDE  PRETO G--1-.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mala de Viagem Grande 32kg Polipropileno 4 Rodas Santiago" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      <div class="bgtags"><span class="bgtag star">⭐ Recomendada</span><span class="bgtag">🛞 Rodas duplas</span></div>
+      <div class="bgprice"><b>R$ 449,90</b> <small>no pix</small> <s>R$ 599,90</s></div>
+      <div class="bgname">Mala de Viagem Grande 32kg Polipropileno 4 Rodas Santiago</div>
+      <div class="bgspec">⚖️ 4,13 kg · 📐 72,5 x 49 x 30,5 cm · 🧳 108,35 L</div>
+      <span class="bgfit ok">soma 152 cm ✓ cabe no despacho</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mala-de-viagem-grande-32kg-polipropileno-4-rodas-santiago-preta/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article><article class="bgcard">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mala-de-viagem-grande-32-kg-polipropileno-4-rodas-hong-kong-preta/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2375899/0018600458005---MALA-HONG-KONG-GDE--PRETO-G---1-.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mala de Viagem Grande 32 Kg Polipropileno 4 Rodas Hong Kong" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      <div class="bgtags"><span class="bgtag">🛞 Rodas duplas</span><span class="bgtag sec">🔒 Cadeado TSA</span></div>
+      <div class="bgprice"><b>R$ 499,90</b> <small>no pix</small> <s>R$ 699,90</s></div>
+      <div class="bgname">Mala de Viagem Grande 32 Kg Polipropileno 4 Rodas Hong Kong</div>
+      <div class="bgspec">⚖️ 3,99 kg · 📐 73 X 47 X 28 cm · 🧳 96 L</div>
+      <span class="bgfit ok">soma 148 cm ✓ cabe no despacho</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mala-de-viagem-grande-32-kg-polipropileno-4-rodas-hong-kong-preta/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article><article class="bgcard">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mala-grande-polipropileno-4-rodas-ziper-antifurto-swissone-montreux-azul/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2343205/FRONTAL.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mala Grande Polipropileno 4 Rodas Zíper Antifurto SwissOne" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      <div class="bgtags"><span class="bgtag sec">🛡️ Zíper antifurto</span><span class="bgtag sec">🔒 Cadeado TSA</span></div>
+      <div class="bgprice"><b>R$ 549,90</b> <small>no pix</small> <s>R$ 1099,90</s></div>
+      <div class="bgname">Mala Grande Polipropileno 4 Rodas Zíper Antifurto SwissOne</div>
+      <div class="bgspec">⚖️ 4,8 kg · 📐 74 x 47 x 29 cm · 🧳 100 L</div>
+      <span class="bgfit ok">soma 150 cm ✓ cabe no despacho</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mala-grande-polipropileno-4-rodas-ziper-antifurto-swissone-montreux-azul/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article><article class="bgcard">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mala-route-grande-preta/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2377176/0018645458005---MALA-ROUTE-GDE--PRETO-G--1-.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mala de Viagem 32 kg Polipropileno 4 Rodas Route" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      <div class="bgtags"><span class="bgtag">🛞 Rodas duplas</span></div>
+      <div class="bgprice"><b>R$ 449,90</b> <small>no pix</small> <s>R$ 549,90</s></div>
+      <div class="bgname">Mala de Viagem 32 kg Polipropileno 4 Rodas Route</div>
+      <div class="bgspec">⚖️ 4,18 kg · 📐 76 x 49 x 30 cm · 🧳 111,7 L</div>
+      <span class="bgfit ok">soma 155 cm ✓ cabe no despacho</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mala-route-grande-preta/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article><article class="bgcard">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mala-de-viagem-grande-32-kg-polipropileno-4-rodas-rover-rose/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2365237/0018555586005---MALA-ROVER-GDE-ROSE--1-.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mala de Viagem Grande 32 Kg Polipropileno 4 Rodas Rover Rosé" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      <div class="bgtags"><span class="bgtag">💰 Mais barata</span><span class="bgtag">🛞 Rodas duplas</span></div>
+      <div class="bgprice"><b>R$ 349,90</b> <small>no pix</small> <s>R$ 599,90</s></div>
+      <div class="bgname">Mala de Viagem Grande 32 Kg Polipropileno 4 Rodas Rover Rosé</div>
+      <div class="bgspec">⚖️ 3,75 kg · 📐 75 x 47 x 31 cm · 🧳 109,2 L</div>
+      <span class="bgfit ok">soma 153 cm ✓ cabe no despacho</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mala-de-viagem-grande-32-kg-polipropileno-4-rodas-rover-rose/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article><article class="bgcard">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mala-grande-32-kg-polipropileno-8-rodas--bagaggio-milao/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2314614/0018531035005---MALA-MILAO-PEQ-GDE-AZUL--1-.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mala Grande 32 kg Polipropileno 8 Rodas Bagaggio Milão" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      <div class="bgtags"><span class="bgtag">🪶 Mais leve</span><span class="bgtag">🧳 Mais espaço</span><span class="bgtag">🛞 8 rodas</span></div>
+      <div class="bgprice"><b>R$ 699,90</b> <small>no pix</small> <s>R$ 899,90</s></div>
+      <div class="bgname">Mala Grande 32 kg Polipropileno 8 Rodas Bagaggio Milão</div>
+      <div class="bgspec">⚖️ 3,5 kg · 📐 75x48,5x33 cm · 🧳 120 L</div>
+      <span class="bgfit ok">soma 157 cm ✓ cabe no despacho</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mala-grande-32-kg-polipropileno-8-rodas--bagaggio-milao/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article></div>
+    <h3 class="bgh">Malas de bordo que cabem <small>(55×35×25) — polipropileno</small></h3>
+    <div class="bggrid"><article class="bgcard top">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mala-pequena-10kg-polipropileno-4-rodas-cartagena-rose/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2377463/0018991586003---MALA-CARTAGENA-PEQ-ROSE-P--1-.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mala de Bordo 10kg Polipropileno 4 Rodas Cartagena Rosé" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      <div class="bgtags"><span class="bgtag star">⭐ Recomendada</span><span class="bgtag">🧳 Mais espaço</span><span class="bgtag">🛞 Rodas duplas</span></div>
+      <div class="bgprice"><b>R$ 449,90</b> <small>no pix</small> <s>R$ 499,90</s></div>
+      <div class="bgname">Mala de Bordo 10kg Polipropileno 4 Rodas Cartagena Rosé</div>
+      <div class="bgspec">⚖️ 2,77 kg · 📐 54 x 35 x 24 cm · 🧳 51 L</div>
+      <span class="bgfit ok">cabe na cabine ✓</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mala-pequena-10kg-polipropileno-4-rodas-cartagena-rose/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article><article class="bgcard">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mala-de-bordo-10-kg-polipropileno-4-rodas-ziper-antifurto-swissone-montreux-roxo/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2332173/0018447016003---MALA-SUISSEWIN-MONTREUX-PEQ-SF--1-.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mala de Bordo 10 kg Polipropileno 4 Rodas Zíper Antifurto SwissOne Roxo" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      <div class="bgtags"><span class="bgtag sec">🛡️ Zíper antifurto</span><span class="bgtag sec">🔒 Cadeado TSA</span></div>
+      <div class="bgprice"><b>R$ 499,90</b> <small>no pix</small> <s>R$ 999,90</s></div>
+      <div class="bgname">Mala de Bordo 10 kg Polipropileno 4 Rodas Zíper Antifurto SwissOne Roxo</div>
+      <div class="bgspec">⚖️ 3,4 kg · 📐 55 x 35 x 23 cm · 🧳 44,2 L</div>
+      <span class="bgfit ok">cabe na cabine ✓</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mala-de-bordo-10-kg-polipropileno-4-rodas-ziper-antifurto-swissone-montreux-roxo/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article><article class="bgcard">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mala-de-bordo-10-kg-polipropileno-4-rodas-route-preta/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2376366/0018643458003---MALA-ROUTE-PEQ--PRETO-P--1-.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mala de Bordo 10 kg Polipropileno 4 Rodas Route" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      <div class="bgtags"><span class="bgtag">🪶 Mais leve</span><span class="bgtag">🛞 Rodas duplas</span></div>
+      <div class="bgprice"><b>R$ 399,90</b> <small>no pix</small> <s>R$ 499,90</s></div>
+      <div class="bgname">Mala de Bordo 10 kg Polipropileno 4 Rodas Route</div>
+      <div class="bgspec">⚖️ 2,43 kg · 📐 55 x 35 x 22,5 cm · 🧳 45,3 L</div>
+      <span class="bgfit ok">cabe na cabine ✓</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mala-de-bordo-10-kg-polipropileno-4-rodas-route-preta/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article><article class="bgcard">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mala-de-bordo-polipropileno-4-rodas-mykonos-ii-preta/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2314308/Mala-Pequena-Polipropileno-4-Rodas-Mykonos-II---Preto-P---0018439.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mala de Bordo 10 kg Polipropileno 4 Rodas Mykonos" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      <div class="bgtags"><span class="bgtag">💰 Mais barata</span></div>
+      <div class="bgprice"><b>R$ 299,90</b> <small>no pix</small> <s>R$ 499,90</s></div>
+      <div class="bgname">Mala de Bordo 10 kg Polipropileno 4 Rodas Mykonos</div>
+      <div class="bgspec">⚖️ 2,5 kg · 📐 55 x 35 x 21 cm · 🧳 39,2 L</div>
+      <span class="bgfit ok">cabe na cabine ✓</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mala-de-bordo-polipropileno-4-rodas-mykonos-ii-preta/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article><article class="bgcard">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mala-de-bordo-10-kg-polipropileno-4-rodas-malta-rosa-escuro-/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2366999/0018610561003---MALA-MALTA-PEQ-ROSA-ESCURO--1-.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mala de Bordo 10 Kg Polipropileno 4 Rodas Malta Escuro" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      
+      <div class="bgprice"><b>R$ 399,90</b> <small>no pix</small> <s>R$ 599,90</s></div>
+      <div class="bgname">Mala de Bordo 10 Kg Polipropileno 4 Rodas Malta Escuro</div>
+      <div class="bgspec">⚖️ 2,57 kg · 📐 55 x 35 x 20 cm · 🧳 38,5 L</div>
+      <span class="bgfit ok">cabe na cabine ✓</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mala-de-bordo-10-kg-polipropileno-4-rodas-malta-rosa-escuro-/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article></div>
+    <h3 class="bgh">Mochila pra você <small>(item pessoal, ideal ≤ 40×30×15)</small></h3>
+    <div class="bggrid"><article class="bgcard">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mochila-masculina-executiva-para-notebook-horizonte/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2367738/0226803458001---MOCHILA-EXECUTIVA-HORIZONTE-PRETO--1-.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mochila Masculina Executiva para Notebook Slim Horizonte" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      
+      <div class="bgprice"><b>R$ 79,90</b> <small>no pix</small> <s>R$ 119,90</s></div>
+      <div class="bgname">Mochila Masculina Executiva para Notebook Slim Horizonte</div>
+      <div class="bgspec">📐 45 x 39 x 11 cm</div>
+      <span class="bgfit ok">cabe na cabine ✓</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mochila-masculina-executiva-para-notebook-horizonte/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article><article class="bgcard">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mochila-masculina-para-notebook-swissone-salzburg-preta/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2292779/MOCHILA-SUISSEWIN-SALZBURG--PRETO-U-------------------------4581.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mochila Masculina para Notebook SwissOne Salzburg Preta" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      
+      <div class="bgprice"><b>R$ 79,90</b> <small>no pix</small> <s>R$ 159,90</s></div>
+      <div class="bgname">Mochila Masculina para Notebook SwissOne Salzburg Preta</div>
+      <div class="bgspec">📐 46 x 32 x 17 cm</div>
+      <span class="bgfit ok">cabe na cabine ✓</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mochila-masculina-para-notebook-swissone-salzburg-preta/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article><article class="bgcard">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mochila-masculina-grande-executiva-para-notebook-travelcross-delta-preta/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2342194/0220294458001---MOCHILA-NOTEBOOK-TRAVELCROSS-DELTA-22Y--1-.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mochila Masculina Grande Executiva para Notebook Travelcross Delta Preta" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      
+      <div class="bgprice"><b>R$ 79,90</b> <small>no pix</small> <s>R$ 189,90</s></div>
+      <div class="bgname">Mochila Masculina Grande Executiva para Notebook Travelcross Delta Preta</div>
+      <div class="bgspec">📐 38 x 28 x 13 cm</div>
+      <span class="bgfit ok">cabe na cabine ✓</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mochila-masculina-grande-executiva-para-notebook-travelcross-delta-preta/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article><article class="bgcard">
+    <a class="bgimg" href="https://www.bagaggio.com.br/mochila-masculina-bg-pack-ii/p" target="_blank" rel="noopener"><img src="https://lojabagaggio.vteximg.com.br/arquivos/ids/2323142/0225087458001---MOCHILA-BG-PACK-VOLUME-II-23J-PRETO--1-.jpg?width=400&amp;height=400&amp;aspect=true" alt="Mochila Masculina BG Pack II" loading="lazy" onerror="this.style.display='none'"></a>
+    <div class="bgbody">
+      
+      <div class="bgprice"><b>R$ 79,90</b> <small>no pix</small> <s>R$ 129,90</s></div>
+      <div class="bgname">Mochila Masculina BG Pack II</div>
+      <div class="bgspec">📐 45X 30 X 14 cm</div>
+      <span class="bgfit ok">cabe na cabine ✓</span>
+      <a class="bgbtn" href="https://www.bagaggio.com.br/mochila-masculina-bg-pack-ii/p" target="_blank" rel="noopener">Ver no bagaggio →</a>
+    </div>
+  </article></div>
+    <p class="vgfoot"><b>Fonte.</b> Preços, pesos e medidas puxados do bagaggio.com.br em 2026-07-17 (podem mudar). Só entram modelos de <b>polipropileno</b> que cabem nos limites da AF (cortei os "grande" de 160-164 cm e os bordos com largura acima de 35 cm). Ressalva: a nota "Opiniões Verificadas" da loja é 3,5/5, confira o prazo de entrega antes de fechar. Imagens e links levam ao site do bagaggio.</p>
+  </div>
   
   <div class="venda hidden" id="pousoSection">
     <div class="note">
@@ -1451,6 +1655,73 @@
     <p class="vfoot"><b>Fontes.</b> Preços "novo" coletados em julho/2026 (Madeira Madeira, Mercado Livre, Shopee, Casas Bahia, Magazine Luiza, Philco). Os valores de anúncio e piso são recomendação, baseada em bom estado e prática de usado no Brasil (móvel revende ~40 a 60% do novo, eletrônico e linha branca ~50 a 70%, colchão menos por higiene).</p>
   </div>
   
+  <div class="venda hidden" id="gatosSection">
+    <div class="note">
+      <b>Por que isso existe.</b> Em 24/08 vocês saem do apartamento de vez (pintura, e o fogão e a geladeira já vendidos: não dá mais para morar). Os 2 gatos de vocês vão morar em definitivo na casa da Álika, onde já vivem os 2 dela. <b>Os quatro nunca se viram.</b> Gato é territorial e resolve conflito por evitação, não por briga: por isso existe um protocolo, e ele leva semanas.
+      <br><br><b>A verdade sobre o prazo, antes de tudo.</b> A diretriz da AAFP diz que uma introdução leva "de poucos dias a alguns meses, e às vezes mais". Ou seja: <b>20 dias é plausível, não é garantido</b>. E fixar data é justamente o modo de falha documentado. O cronograma abaixo é uma <b>referência</b>: quem manda é o comportamento do gato, não o calendário. Planeje já para o cenário em que em 24/08 eles ainda estejam em fases separadas, e isso esteja tudo bem: o quarto de transição fica de pé o tempo que precisar. A folga real de vocês é de <b>24/08 a 07/09</b>, quando ainda estarão no país para corrigir o que der errado. Não gaste essa folga adiando o início.
+    </div>
+
+    <h3 class="vh">O cronograma (04/08 a 24/08)</h3>
+    <div class="gfases"><div class="gfase"><div class="gfn">1</div><div class="gfb"><div class="gfh"><span class="gfnome">Chegada e quarto de transição</span><span class="gfdata">04/08 a 08/08</span><span class="gfref">~5 dias</span></div><div class="gfo">Os 2 gatos chegam e vão direto para um quarto só deles, com porta fechada. Sem contato visual com os residentes. O quarto precisa ter tudo: caixa de areia, comida, água, cama de borda alta, arranhador, esconderijo e ponto alto.</div><div class="gfc"><b>Como fazer.</b> Leve as camas, mantas e arranhadores da casa antiga <b>sem lavar</b>: é a única âncora de cheiro que eles têm. Ligue um difusor de feromônio no quarto e outro na área comum <b>24 a 48h antes</b> de eles chegarem (a AAFP põe isso como passo padrão). Deixe-os sair da caixa de transporte sozinhos, no tempo deles.</div><div class="gfg"><b>Só avance quando:</b> Só avance quando os dois <b>saírem do esconderijo sozinhos e explorarem o quarto com confiança</b>. A AAFP não dá número: o critério é esse. Fontes variam de 3 a 7+ dias.</div></div></div><div class="gfase"><div class="gfn">2</div><div class="gfb"><div class="gfh"><span class="gfnome">Troca de cheiro</span><span class="gfdata">09/08 a 12/08</span><span class="gfref">~4 dias</span></div><div class="gfo">Antes de qualquer contato, os grupos precisam se conhecer pelo cheiro. Aqui não tem nada visual ainda.</div><div class="gfc"><b>Como fazer.</b> Troque camas e brinquedos entre os dois grupos, <b>todos os dias</b> (AAFP passo 6). Depois de alguns dias indo bem, passe para a transferência de cheiro (passo 7): esfregue o pano com o cheiro de um <b>nas bochechas, no queixo e entre os olhos e orelhas</b> do outro. Isso constrói o "cheiro do grupo".</div><div class="gfg"><b>Só avance quando:</b> Repita diariamente <b>até nenhum gato reagir com tensão ao objeto do outro</b>. Se alguém bufa ou se recusa a chegar perto do pano, fique nesta fase.</div></div></div><div class="gfase"><div class="gfn">3</div><div class="gfb"><div class="gfh"><span class="gfnome">Brincadeira na porta e troca de território</span><span class="gfdata">13/08 a 17/08</span><span class="gfref">~5 dias</span></div><div class="gfo">Duas coisas em paralelo: associação positiva através da porta fechada, e os novatos conhecendo a casa sem confronto.</div><div class="gfc"><b>Como fazer.</b> Amarre dois brinquedos com um barbante forte, tipo halter, e ponha um de cada lado da porta fechada. <b>Sem se verem.</b> Sessões de 5 a 20 minutos, ao menos 2 por dia, parando antes de perderem o interesse (AAFP passo 8). Em paralelo (passo 9): ponha os residentes num quarto com petisco e deixe os novatos <b>explorarem a casa</b>, aumentando o tempo a cada dia. Depois inverta.</div><div class="gfg"><b>Só avance quando:</b> Os dois lados brincam relaxados na porta e os novatos andam pela casa com confiança, sem congelar nem correr de volta.</div></div></div><div class="gfase"><div class="gfn">4</div><div class="gfb"><div class="gfh"><span class="gfnome">Contato visual com barreira</span><span class="gfdata">18/08 a 21/08</span><span class="gfref">~4 dias</span></div><div class="gfo">A primeira vez que se veem. Com barreira física entre eles, sempre.</div><div class="gfc"><b>Como fazer.</b> Use tela, portão alto ou porta de vidro (AAFP passo 10). Sessões <b>curtas</b>, encerradas por você enquanto ainda está calmo, nunca esperando dar problema. Se um residente ficar parado na porta ou passar a pata por baixo, acrescente uma segunda barreira na frente (biombo, caixas, cadeiras).</div><div class="gfg"><b>Só avance quando:</b> Se veem <b>sem encarar fixo</b>, sem rosnar, sem bloquear passagem. Um ou dois bufos no começo são esperados e não reprovam a fase.</div></div></div><div class="gfase"><div class="gfn">5</div><div class="gfb"><div class="gfh"><span class="gfnome">Encontros supervisionados</span><span class="gfdata">22/08 a 24/08</span><span class="gfref">~3 dias</span></div><div class="gfo">Mesmo espaço, sem barreira, com vocês presentes e atentos o tempo todo.</div><div class="gfc"><b>Como fazer.</b> Use brinquedo de vara e petisco para manter todo mundo ocupado e associando o outro a coisa boa (AAFP passo 11). Comece com poucos minutos e vá aumentando. <b>Encerre sempre no positivo</b>, antes de qualquer tensão.</div><div class="gfg"><b>Só avance quando:</b> Meta: <b>coexistir sem tensão</b>. Se aparecer tensão, a AAFP manda voltar aos passos 8 e 9 por mais alguns dias.</div></div></div></div>
+    <p class="vfoot"><b>As datas são referência, não regra.</b> O critério de avanço é unânime entre AAFP, Cornell, OSU, UC Davis, ASPCA e Cats Protection: <b>só avance quando cada gato estiver confortável na fase atual</b>. Se travar numa fase, fique nela. Um cronograma que escorrega é sucesso; um gato empurrado é tensão crônica por anos. <b>Atenção:</b> este cronograma pressupõe que os 2 gatos de vocês são bonded e que eles <b>moram</b> na casa da Álika desde 04/08. As duas seções seguintes explicam por quê.</p>
+
+    <h3 class="vh">Os gatos precisam morar lá desde 04/08, não visitar</h3>
+    <div class="note">
+      <b>A pergunta:</b> dá para os gatos ficarem no apartamento de vocês até 24/08 e irem todo dia à casa da Álika por algumas horas, fazendo a adaptação lá e voltando para dormir em casa? Moram no mesmo condomínio, então logisticamente é fácil.<br><br>
+      <b>A resposta: não funciona</b>, e o motivo não é apego a protocolo. São seis furos, e o último sozinho já derruba o plano. Ressalva honesta: <b>nenhuma fonte veterinária descreve esse formato</b>, então isto é extrapolação dos princípios (AAFP, OSU), não citação. Mas os princípios são sólidos e todos apontam para o mesmo lado.
+    </div>
+    <div class="palerts"><div class="palert"><div class="pat">O quarto de transição nunca vira território deles</div><div class="pad">É o furo central. Toda a fase 1 existe para o gato transformar aquele quarto na base segura dele, e o critério de avanço é literalmente "explora o quarto com confiança". Isso se constrói <b>morando</b>: o gato marca com as glândulas faciais, o cheiro dele impregna, o lugar vira dele. Um gato que passa 3 horas e vai embora não constrói base nenhuma: ele visita. Sem base, as fases 2 a 5 não têm de onde partir.</div></div><div class="palert"><div class="pat">A troca de cheiro não fecha o ciclo</div><div class="pad">O mecanismo é criar um <b>cheiro de grupo</b>: os cheiros se misturam e viram um só, e é isso que faz o outro gato deixar de ser estranho. Se os seus voltam todo dia para um apartamento onde só existe o cheiro deles, você reseta metade do trabalho todo santo dia. E do lado de lá, os gatos da Álika seguem sentindo um cheiro que aparece e some, que é exatamente o perfil de <b>intruso</b>, não de morador.</div></div><div class="palert"><div class="pat">Vinte viagens de caixa em vez de uma</div><div class="pad">Mesmo sendo no mesmo condomínio, cada ida é caixa de transporte, deslocamento e chegada. Transporte é estresse conhecido em gato. Você troca <b>1 evento estressante</b> (a mudança) por <b>~20</b>, e joga esses 20 justo em cima do gato que menos pode: o macho, que é o único com risco de obstrução uretral.</div></div><div class="palert"><div class="pat">Do lado dos residentes, o intruso nunca vira morador</div><div class="pad">Gato aceita o outro por convivência e tempo compartilhado no espaço. Uma presença que invade e desaparece todo dia não é lida como "novo membro do grupo": é lida como invasão repetida. Você pode estar ensaiando 20 vezes a primeira impressão ruim, em vez de construir uma boa.</div></div><div class="palert"><div class="pat">Em 24/08 você recomeça do zero, no pior dia possível</div><div class="pad">No dia 24 muda a única variável que importa: <b>eles não voltam mais</b>. Até então, todo dia terminava com a garantia de voltar para casa. Agora não tem volta, e essa é a diferença entre "visita" e "perder o território". O gato descobre isso no dia 24, e é aí que a adaptação de verdade começa, com <b>zero</b> dia de folga antes de vocês viajarem em 07/09. É o oposto do que vocês querem.</div></div><div class="palert"><div class="pat">E o apartamento não é base segura em agosto</div><div class="pad">Este ponto é decisivo e é fácil de não enxergar. O plano supõe que o apartamento continua sendo o refúgio deles até 24/08. Mas em agosto ele vai estar sendo <b>pintado e esvaziado</b>: móveis (as âncoras de cheiro deles) sumindo um a um, cheiro de tinta, gente estranha entrando. <b>Cheiro de tinta é problema de saúde para gato</b>, não só desconforto: se for pintar com eles dentro, isso sozinho já obriga a tirá-los antes. Ou seja, o plano deixa os gatos numa base que está se desfazendo <b>e</b> os leva todo dia para um confronto. É estresse empilhado dos dois lados.</div></div></div>
+    <div class="note ok">
+      <b>O que fazer em vez disso: inverta quem se desloca.</b> Vocês moram no mesmo condomínio, e é isso que salva a ideia. Em vez de <b>os gatos</b> irem e voltarem todo dia, <b>vocês</b> é que vão até lá todo dia. Os gatos <b>moram</b> na casa da Álika desde 04/08, com base estável e cheiro acumulando, e vocês passam horas com eles todos os dias.<br><br>
+      Repare no que vocês ganham: sob o plano original, os gatos saem da sua vida em <b>24/08</b>. Com a inversão, vocês convivem com eles <b>até 07/09</b>, duas semanas a mais, e ainda veem a adaptação acontecer com vocês no país para corrigir. O que vocês perdem são 20 noites de eles dormirem no seu apartamento, um apartamento que em agosto vai estar sendo pintado e esvaziado.<br><br>
+      <b>Um ajuste importante:</b> nessas visitas, quem serve as refeições, faz as brincadeiras e dá os petiscos é a <b>Álika</b>, não vocês (ver a seção sobre transição de cuidador). Vocês estão lá como companhia e afeto, não como fonte de recursos. Assim, em 07/09, o que muda para eles é a companhia, não a base de segurança.
+    </div>
+
+    <h3 class="vh">Quem são os 4</h3>
+    <div class="gperfis"><div class="gperf ok"><div class="gpft">Os 4 são castrados</div><div class="gpfd">Boa notícia, e não é detalhe: gato não castrado tem tensão territorial e marcação muito maiores. Isso remove de saída um dos maiores fatores de briga em lar multigato. Vocês começam com o cenário favorável nesse ponto.</div></div><div class="gperf bad"><div class="gpft">O único macho é um dos que chegam</div><div class="gpfd">Este é o ponto de atenção nº 1 do caso de vocês, e ele vem da <b>combinação</b>: o macho é novato, então acumula o maior estresse (perde o território e não tem para onde voltar) <b>e</b> é o único do grupo com risco de obstrução uretral. Cistite idiopática felina por estresse é justamente o que aparece em gato pressionado, e em macho ela pode virar obstrução, que mata em 24 a 48h. Ele é o gato para vigiar mais de perto em todas as fases, e o motivo pelo qual não vale a pena forçar o calendário.</div></div><div class="gperf neutro"><div class="gpft">3 fêmeas, 1 macho</div><div class="gpfd">Sem regra confiável de "combinação ideal de sexos" para gato castrado: o que decide é o temperamento de cada um, o espaço e os recursos, não o sexo. Não conte com isso para prever quem vai se dar bem com quem. Deixe os gatos mostrarem.</div></div></div>
+
+    <h3 class="vh">A pergunta que ainda decide tudo: os 2 gatos de vocês são bonded?</h3>
+    <div class="palerts"><div class="palert"><div class="pat">Esta resposta muda o plano inteiro</div><div class="pad">A AAFP é literal: <b>se os 2 novatos são bonded</b> (afiliados entre si), eles dividem <b>um</b> quarto de transição e passam pelas fases <b>juntos</b> (o cronograma acima). <b>Se não são bonded</b>, cada um precisa do <b>próprio</b> quarto, passa pelas fases <b>separadamente</b>, e precisa ser apresentado tanto aos residentes <b>quanto ao outro gato novo</b>. Deixa de ser 1 introdução e vira várias em paralelo, e 20 dias não bastam.<br><br><b>Como saber:</b> não é "moram juntos e não brigam". É <b>comportamento afiliativo</b>: encostam nariz no nariz, esfregam o corpo um no outro, se lambem, dormem encostados. Se os seus dois fazem isso, são bonded e o cronograma vale. Se apenas se toleram, o plano precisa ser refeito.</div></div></div>
+
+    <h3 class="vh">Antes de 04/08: preparar a casa da Álika</h3>
+    <div class="gpreps"><div class="gprep"><div class="gpt">5 caixas de areia, espalhadas</div><div class="gpd">Regra n+1: 4 gatos = 5 caixas. <b>Nunca lado a lado</b>: 5 caixas na mesma parede o gato lê como UMA, e um gato sozinho bloqueia todas. Espalhe por cômodos diferentes, pelo menos uma por andar, nenhuma em beco sem saída. Se duas ficarem perto, ponha em ângulo reto, não enfileiradas.</div></div><div class="gprep"><div class="gpt">Caixa grande: pet shop não serve</div><div class="gpd">A diretriz pede caixa de <b>1,5x o comprimento do gato</b> (do nariz à base do rabo). Quase toda caixa de pet shop é pequena demais. Use caixa organizadora de plástico (tipo sob-cama) ou bandeja de argamassa, e corte uma entrada baixa na lateral se a borda for alta. Sai mais barato e é maior.</div></div><div class="gprep"><div class="gpt">Areia e limpeza</div><div class="gpd">Areia fina, <b>sem perfume</b>, aglomerante, uns 3 cm de profundidade. Caixa <b>aberta</b>, não tampada: você precisa enxergar o que está acontecendo. Peneire 1 a 2x por dia. Lave só com sabão e água quente, nunca produto com amônia (cheira a xixi para o gato).</div></div><div class="gprep"><div class="gpt">5 comedouros e 5 bebedouros, separados</div><div class="gpd">Gato é caçador solitário, não divide presa. Forçado a dividir estação de comida, ele come com estresse ou desiste. Separe por cômodo, barreira visual ou altura. <b>Água longe da comida e longe da areia</b>: gato confrontado no bebedouro simplesmente para de beber, e isso vira problema urinário justo na fase de estresse.</div></div><div class="gprep"><div class="gpt">Esconderijos e altura</div><div class="gpd">No mínimo 4 esconderijos e vários pontos altos. Altura multiplica território sem aumentar a casa. Critério que quase ninguém aplica (OSU): o gato precisa conseguir usar cada recurso <b>sem ser visto pelos outros</b>. Senão, evitar o outro custa passar fome ou segurar o xixi.</div></div><div class="gprep"><div class="gpt">Comprar e montar ANTES</div><div class="gpd">Móvel novo também é estresse. Os gatos da Álika precisam já estar habituados aos 5 de cada coisa <b>antes</b> dos novatos chegarem. E a montagem tem que ser sustentável por uma pessoa sozinha depois de 07/09.</div></div><div class="gprep"><div class="gpt">Não deixe os residentes marcarem o quarto de transição</div><div class="gpd">O refúgio dos novatos não pode nascer já cheirando aos outros. Feche o quarto antes.</div></div></div>
+    <p class="vfoot">A AAFP é categórica: <b>"não ter recursos suficientes e visualmente separados é a causa mais comum de tensão entre gatos"</b>. Esta lista é provavelmente o item de maior retorno de tudo aqui, e é a compra que precisa estar feita e montada antes. Ressalva honesta: a fama da regra n+1 é maior que a evidência dela (um estudo com 245 gatos não achou significância em nenhum atributo da caixa). Mas 5 caixas são baratas e sem risco: é seguro barato, não superstição.</p>
+
+    <h3 class="vh">Como ler os gatos</h3>
+    <div class="gsinais"><div class="gsin ok"><div class="gst">Vai bem: pode avançar</div><ul><li><b>Comportamento afiliativo</b> é a prova real: encostar nariz no nariz, esfregar o corpo no outro, lamber o outro, dormir encostados.</li><li>Comem a porção inteira, em ritmo normal, perto da barreira, sem parar para monitorar o outro.</li><li>Brincam relaxados dos dois lados da porta.</li><li><b>Tolerância já é vitória.</b> A AAFP diz que gatos que não são nem amigos nem hostis é desfecho aceitável. O resultado realista aqui são <b>2 grupos sociais que se toleram</b>, não 1 grupo de 4.</li></ul></div><div class="gsin warn"><div class="gst">Desacelere: fique mais tempo na fase</div><ul><li><b>Encarar fixamente.</b> Na pesquisa da AAFP foi o sinal mais frequente de todos, e é o mais ignorado. Encarar não é neutro: é o primeiro passo de um conflito.</li><li><b>Bloquear passagem</b> (porta, corredor, caixa de areia). É agressão sem barulho.</li><li>Se afastar, sair de perto, se esconder.</li><li>Corpo: orelhas viradas para trás, pupilas dilatadas, cauda batendo rápido, corpo tenso ou congelado, pelo arrepiado, postura agachada, bigodes achatados.</li><li>Xixi ou cocô fora da caixa. Não chegar perto do objeto com cheiro do outro.</li></ul></div><div class="gsin bad"><div class="gst">Pare e volte fase</div><ul><li><b>Agressão ofensiva</b> (o que ataca): corpo ereto e rígido, garupa elevada, olhar fixo, orelhas em pé giradas para frente, <b>pupilas contraídas</b>, rosnado ou uivo.</li><li><b>Agressão defensiva</b> (o que tem medo): agachado, cabeça encolhida, cauda presa ao corpo, <b>pupilas dilatadas</b>, orelhas achatadas, bufo de boca aberta, patada.</li><li>Qualquer briga com ferimento.</li><li>UC Davis: se houver agressão, <b>recomece a introdução</b>. A AAFP manda voltar aos passos 8 e 9 por alguns dias.</li></ul></div></div>
+
+    <h3 class="vh">Emergência: o risco nº 1, e ele tem nome</h3>
+    <div class="palerts"><div class="palert bad"><div class="pat">O macho de vocês é o gato mais exposto dos quatro</div><div class="pad">Não é alarmismo, é a combinação de dois fatos: ele é <b>novato</b> (maior estresse, perde o território, sem rota de volta) e é o <b>único macho</b> (único com risco de obstrução uretral). Os dois riscos caem no mesmo gato.<br><br>A OSU descreve o <b>conflito silencioso</b>: sem briga nenhuma, um gato encara e nega acesso aos recursos, o outro se esconde, evita olhar, cede lugar e só aparece quando o primeiro não está. O desfecho médico documentado: o gato ameaçado <b>"pode desenvolver cistite ou outra doença"</b>. Cistite idiopática felina por estresse, em macho, pode evoluir para <b>obstrução uretral</b>: emergência com <b>risco de morte em 24 a 48 horas</b>. A casa pode parecer em paz e estar doente.<br><br><b>Monitorar e anotar todo dia:</b> um gato sumiu; um gato só come de madrugada; xixi fora da caixa; indo muito à caixa e fazendo pouco; vocalizando na caixa; lambendo demais a barriga.<br><br><b>Regra sem exceção: macho tentando urinar sem sair nada é veterinário AGORA, não amanhã, não "vamos ver se melhora".</b> A Álika precisa saber disso de cor, e precisa ter a clínica de emergência 24h no telefone antes de 04/08.</div></div></div>
+
+    <h3 class="vh">Erros que custam caro</h3>
+    <div class="palerts"><div class="palert"><div class="pat">Avançar porque é dia 24, e não porque o gato está pronto</div><div class="pad">Este é o erro que o prazo de vocês cria, e a AAFP o marca <i>em itálico</i> no guia: "é vital não apressar o processo. Se você continuar dando passos à frente quando cada gato ainda não está confortável com o passo atual, isso pode resultar em <b>tensão de longo prazo</b> entre os gatos". Não é uma briga: é uma casa onde por anos um gato nunca relaxa.</div></div><div class="palert"><div class="pat">Soltar todos juntos para "ver como se dão"</div><div class="pad">AAFP e UC Davis são unânimes: primeira impressão dura. Uma ruim custa semanas para desfazer.</div></div><div class="palert"><div class="pat">Separar briga com as mãos, gritar, borrifar água ou punir</div><div class="pad">ASPCA: <b>não toque, não tente acalmar, não puna</b>. Pegar gato excitado é a via clássica de mordida redirecionada grave na pessoa. E punir bufo ensina o gato a associar a bronca à presença do outro: exatamente o oposto do objetivo. O jeito certo: ponha almofada, papelão ou toalha entre eles para cortar o contato visual, distraia, e leve cada um para um cômodo.</div></div><div class="palert"><div class="pat">Lavar as camas e mantas antes da mudança</div><div class="pad">Você apaga a única âncora de cheiro que os novatos levam da casa antiga.</div></div><div class="palert"><div class="pat">Espalhar o cheiro da casa antiga pela área comum</div><div class="pad">Dentro do quarto de transição ajuda. Na área dos residentes, lê como marcação de intruso e pode disparar remarcação e xixi fora da caixa.</div></div><div class="palert"><div class="pat">Dar carinho ao novato na frente dos residentes</div><div class="pad">UC Davis recomenda o contrário: atenção reforçada aos <b>residentes</b>, e afeto aos novatos longe deles até a relação estar feita.</div></div><div class="palert"><div class="pat">Achar que silêncio é sucesso</div><div class="pad">O conflito silencioso não faz barulho e termina em gato escondido e doente. Ausência de briga não é evidência de paz.</div></div><div class="palert"><div class="pat">Desmontar o quarto de transição quando integrarem</div><div class="pad">Erro grave <b>no caso específico de vocês</b>. Gato resolve conflito por evitação, e briga acontece quando não dá para escapar. Como os novatos mudaram em definitivo, o território antigo não existe mais: aquele quarto é a <b>única base de segurança que eles têm no mundo</b>. Ele fica, com recursos completos, por meses.</div></div><div class="palert"><div class="pat">Usar feromônio no lugar do protocolo</div><div class="pad">Cornell é explícito: medicação e apoios só funcionam <b>junto</b> com a dessensibilização gradual, nunca no lugar dela.</div></div></div>
+
+    <h3 class="vh">Depois de 07/09: a Álika fica sozinha com os 4</h3>
+    <div class="gpreps"><div class="gprep"><div class="gpt">A Álika precisa ser a cuidadora principal desde 04/08, não desde 07/09</div><div class="gpd">Esta é a recomendação que mais contraria o instinto de vocês, e talvez a mais importante da aba. Pesquisa da Oregon State (Vitale et al., 2019, <i>Current Biology</i>) mostrou que ~64% dos gatos formam apego seguro ao cuidador, comparável a cães e crianças. Se vocês forem a fonte de comida e brincadeira até 06/09 e sumirem em 07/09, vocês empilham <b>dois lutos</b>: perda de território (agosto) e perda das pessoas (setembro), o segundo caindo bem no meio dos ~3 meses de adaptação à casa. Concreto: a partir da mudança, <b>quem serve todas as refeições é a Álika</b>, quem faz as sessões de brincadeira é a Álika, quem dá os petiscos nas fases é a Álika. Vocês seguem presentes e afetuosos, mas param de ser a fonte de recursos. Em 07/09, o que muda para os gatos é a companhia, não a base de segurança.</div></div><div class="gprep"><div class="gpt">Transferir o microchip para o nome da Álika</div><div class="gpd">Chip com cadastro desatualizado não devolve gato nenhum. Atualize o registro para o nome e telefone dela <b>antes de viajar</b>, junto com um termo simples de transferência de guarda.</div></div><div class="gprep"><div class="gpt">Autorização veterinária por escrito</div><div class="gpd">Documento assinado autorizando a Álika a aprovar tratamento e procedimentos de emergência, com o contato internacional de vocês. Mais: clínica de referência, clínica de emergência 24h e <b>como pagar</b> (reserva combinada, quem paga o quê, valor deixado disponível).</div></div><div class="gprep"><div class="gpt">Pasta de passagem</div><div class="gpd">Ficha de cada gato (nome, idade, microchip, castrado), carteira de vacinação, exames, alergias e medicações, rotina escrita (marca e quantidade de ração, horários, tipo de areia, manias), e o plano de introdução com a fase em que cada gato parou.</div></div><div class="gprep"><div class="gpt">Diário de 5 linhas por dia</div><div class="gpd">Data, fase atual, o que aconteceu, sinais de tensão, decisão de avançar ou não. Serve para três coisas: força o avanço a ser por comportamento e não por calendário; dá dados reais ao veterinário se precisar; e é o melhor handover possível, porque depois de 07/09 a Álika continua a série no mesmo caderno e vocês acompanham de longe sem depender de "como eles estão?".</div></div><div class="gprep"><div class="gpt">Plano B escrito e financiado</div><div class="gpd">O que vocês não podem deixar é uma decisão difícil sem critério e sem dinheiro. Deixem por escrito: gatilhos objetivos para buscar ajuda (briga com ferimento, gato escondido +48h, xixi fora da caixa +3 dias, macho com dificuldade de urinar); nome e valor de um veterinário comportamentalista <b>já contatado antes de viajar</b>, para a Álika não estar no Google em pânico; verba para medicação comportamental se indicada; e o combinado de que <b>separação permanente é desfecho legítimo</b> (AAFP e OSU aceitam gatos que coexistem em áreas separadas com recursos completos). A Álika precisa saber que isso é permitido e não é ela fracassando.</div></div></div>
+    <p class="vfoot">Calibre a expectativa dela desde já: <b>a meta até 24/08 é coexistência pacífica, não amizade.</b> Os "8 a 12 meses" que se lê por aí é sobre virarem amigos, não sobre concluir a introdução. E adaptação à casa nova tem escala própria: dias para sair de baixo da cama, 3 a 4 semanas para rotina estável, ~3 meses para "aqui é minha casa". Repare no que isso significa: em 07/09, quando vocês voarem, os gatos estarão a menos de 2 meses de mudança, ou seja, ainda no meio do processo de adotar a casa.</p>
+
+    <h3 class="vh">Sobre feromônio (Feliway), sendo honesto</h3>
+    <div class="vstrat">
+      <details>
+        <summary><span class="vchev">▶</span> Usar? Sim, mas sabendo o que a evidência sustenta</summary>
+        <div class="vbody">
+          <p><b>A favor:</b> a AAFP 2024, que é a diretriz principal deste protocolo, coloca o difusor como <b>passo padrão</b> (passo 3): um na área de convívio e um no quarto de transição, ligados 24 a 48h antes da chegada.</p>
+          <p><b>Contra:</b> a evidência é modesta e quase toda financiada pelo fabricante. O único estudo direto para conflito entre gatos (DePorter, 2019) foi financiado pela Ceva, com o investigador principal prestando consultoria para ela e um co-autor sendo funcionário. Uma revisão independente (RCVS Knowledge) apontou furos sérios em outro estudo muito citado. E num estudo de 2023, o placebo foi quase tão bem quanto o feromônio (68,5% contra 83,5%).</p>
+          <p><b>Conclusão:</b> é apoio barato e sem risco. Use, mas <b>nunca como plano</b>. Um difusor cobre um cômodo e não atravessa parede nem porta fechada, então a casa da Álika precisa de pelo menos dois. O que decide o resultado é o protocolo, os recursos e a paciência, não o produto.</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="vchev">▶</span> Três coisas que eu achei que eram verdade e não são</summary>
+        <div class="vbody">
+          <p><b>1. Não dá para adiantar a troca de cheiro entre as duas casas.</b> Parecia ganho de graça: trocar cobertores agora e chegar em 04/08 com os gatos já familiarizados. Mas nenhuma fonte veterinária apoia isso. Todos os protocolos verificados começam a troca de cheiro <b>depois</b> que o novato chega e se instala no quarto de transição (AAFP passo 6: "assim que o novo gato estiver confortável no quarto de transição, comece a introduzir gradualmente o cheiro"). Fica como ideia sem respaldo.</p>
+          <p><b>2. O "mínimo de 21 dias" não existe.</b> É número de blog de SEO. Três fontes primárias contradizem: AAFP ("de poucos dias a alguns meses"), UC Davis ("pode levar apenas alguns dias, às vezes muito mais") e SF SPCA ("algumas introduções correm bem em dias"). Ou seja: a janela de vocês é menos apertada do que parecia, mas continua sem garantia.</p>
+          <p><b>3. Comida nos dois lados da porta é tradição de abrigo, não diretriz.</b> A AAFP não usa isso como passo principal: ela recomenda <b>brincadeira</b> nos dois lados da porta fechada, e alerta que juntar gato em volta de comida gera estresse. Com 4 gatos, você não quer ensinar que refeição é hora de disputa.</p>
+        </div>
+      </details>
+    </div>
+
+    <p class="vfoot"><b>Fontes.</b> Protocolo e citações do guia da <b>AAFP 2024</b> ("Step-by-Step Guide: How to Introduce a New Cat to Other Cats in Your Home", que acompanha as AAFP Intercat Tension Guidelines, publicadas no <i>Journal of Feline Medicine and Surgery</i>), lido na íntegra. Complementado por Ohio State University Indoor Pet Initiative (conflito e conflito silencioso), UC Davis Clinical Animal Behavior Service, Cornell Feline Health Center, ASPCA, VCA, Cats Protection, International Cat Care e Oregon State (Vitale et al., 2019, <i>Current Biology</i>, apego felino). Pesquisado e verificado em 16/07/2026; números sem fonte veterinária foram descartados de propósito. Isto não substitui um veterinário comportamentalista.</p>
+  </div>
   <footer>Gerado por build.mjs a partir do Daft.ie em 2026-07-06. Rodar de novo para atualizar.</footer>
 </div>
 
@@ -1700,6 +1971,13 @@ fillAreas(); render();
   }
 })();
 
+// ---- Aba Gatos: contagem regressiva até o início da adaptação ----
+(function(){
+  var ini=new Date(2026,7,4);
+  var d=Math.ceil((ini-new Date())/864e5);
+  var el=document.getElementById('gDiasIni');
+  if(el)el.textContent=d>0?String(d):(d===0?'hoje':'já começou');
+})();
 
 // ---- Aba Vagas: filtros client-side por show/hide dos cards ----
 (function(){
